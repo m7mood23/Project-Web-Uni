@@ -1,48 +1,385 @@
-/* ====== HypeAura design tokens (from your audit) ====== */
-:root{
-  --ha-black: #000000;
-  --ha-grey-700: #2c2c2c;
-  --ha-grey-600: #3b3b3b;
-  --ha-grey-500: #444444;
-  --ha-white: #ffffff;
-  --ha-white-70: #ffffffb3; /* muted white text */
-  --ha-accent: #3d38f5;     /* your blue/purple accent */
-  --ha-accent-soft: #b9b8ff;/* soft lavender from your text colors */
+/* ==============================
+   HYPEAURA PROFESSIONAL THEME
+   ============================== */
 
-  --ha-font-body: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-  --ha-font-heading: "Times New Roman", Times, serif;  /* you used this for some headings */
+:root {
+  --ha-black: #0a0a0a;
+  --ha-white: #ffffff;
+  --ha-gray-bg: #f8f9fb;
+  --ha-gray-soft: #f3f4f6;
+  --ha-accent: #e63946; /* bold modern red */
+  --ha-accent-dark: #c22f3a;
+  --ha-muted: #6c757d;
+  --ha-border: #e0e0e0;
+  --ha-text: #111111;
 }
 
-/* base */
-html,body{ background:#f7f7f7; color:#000; }
-body{ font-family:var(--ha-font-body); font-size:11px; line-height:1.6; }  /* matches your audit */
-h1,h2,h3,h4{ font-family:var(--ha-font-heading); margin:0 0 .75rem; }
+/* GLOBAL BASE */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--ha-text);
+  background: var(--ha-gray-bg);
+  margin: 0;
+  line-height: 1.6;
+}
 
-/* navbar */
-.ha-navbar{ background: var(--ha-black); }
-.ha-brand{ color: var(--ha-white) !important; font-weight:800; letter-spacing:.06em; }
-.ha-nav .nav-link{ color:var(--ha-white); opacity:.9; }
-.ha-nav .nav-link:hover, .ha-nav .nav-link.active{ opacity:1; }
+h1, h2, h3, h4, h5 {
+  font-family: "Times New Roman", serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
 
-/* hero */
-.hero-wrap{ background: #111 url('../images/hero.jpg') center/cover no-repeat; }
-.hero-mask{ background: linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.55)); }
-.hero-text{ color: var(--ha-white); }
-.hero-cta{ background: var(--ha-accent); color:#fff; border:none; }
-.hero-cta:hover{ filter: brightness(.92); }
+p {
+  margin-bottom: 1rem;
+}
 
-/* sections */
-.section-light{ background:#fff; }
-.section-quiet{ background:#f3f5f7; } /* your pale grey band */
-.section-pad{ padding: 64px 0; }
-.text-muted-70{ color: var(--ha-white-70); }
+/* NAVBAR */
+.ha-navbar {
+  background: var(--ha-black);
+  padding: 0.9rem 0;
+}
 
-/* card-like form container */
-.form-panel{ background:#fff; border:1px solid var(--ha-grey-500); border-radius:12px; box-shadow: 0 10px 24px rgba(0,0,0,.06); }
+.ha-navbar .navbar-brand {
+  color: var(--ha-white);
+  letter-spacing: 0.08em;
+  font-size: 1.3rem;
+}
 
-/* footer */
-.site-footer{ background: var(--ha-black); color: var(--ha-white); }
-.site-footer .muted{ color: var(--ha-white-70); }
+.ha-navbar .nav-link {
+  color: var(--ha-white);
+  opacity: 0.85;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
 
-.btn-accent{ background: var(--ha-accent); color:#fff; }
-.btn-accent:hover{ filter:brightness(.92); }
+.ha-navbar .nav-link:hover,
+.ha-navbar .nav-link.active {
+  opacity: 1;
+  color: var(--ha-accent);
+}
+
+/* HERO SECTION */
+.hero-section {
+  position: relative;
+  background: url("../images/hero.jpg") center/cover no-repeat;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-section .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-section h1 {
+  color: var(--ha-white);
+  font-size: 3rem;
+  line-height: 1.25;
+  margin-bottom: 1.2rem;
+}
+
+.hero-section p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  max-width: 600px;
+}
+
+.btn-accent {
+  background: var(--ha-accent);
+  color: var(--ha-white);
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-accent:hover {
+  background: var(--ha-accent-dark);
+}
+
+/* SECTIONS */
+.section-light {
+  background: var(--ha-white);
+}
+
+.section-quiet {
+  background: var(--ha-gray-soft);
+}
+
+.section-light, .section-quiet {
+  padding: 90px 0;
+}
+
+/* FORM PANEL */
+.form-panel {
+  background: var(--ha-white);
+  border: 1px solid var(--ha-border);
+  border-radius: 10px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
+}
+
+.form-label {
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.form-control {
+  border-radius: 6px;
+  padding: 0.6rem 0.75rem;
+}
+
+.form-control:focus {
+  border-color: var(--ha-accent);
+  box-shadow: 0 0 0 0.15rem rgba(230, 57, 70, 0.25);
+}
+
+/* FOOTER */
+.site-footer {
+  background: var(--ha-black);
+  color: var(--ha-white);
+  font-size: 0.95rem;
+  padding: 3rem 0 2rem;
+}
+
+.site-footer .muted {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.site-footer ul {
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.site-footer li {
+  margin-bottom: 0.25rem;
+}
+
+.site-footer hr {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 767px) {
+  .hero-section h1 {
+    font-size: 2.1rem;
+    text-align: center;
+  }
+  .hero-section p {
+    text-align: center;
+    margin: 0 auto;
+  }
+  .hero-section {
+    justify-content: center;
+  }
+}
+
+/* ---------- MEN PAGE CUSTOM STYLES ---------- */
+
+/* Hero image for Men page */
+.men-hero {
+  background: url("../images/men-hero.jpg") center/cover no-repeat;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.men-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+.men-hero .container {
+  position: relative;
+  z-index: 1;
+}
+.men-hero h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--ha-white);
+  margin-bottom: 1rem;
+}
+.men-hero p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+}
+
+/* Product cards */
+.product-card {
+  background: var(--ha-white);
+  border: 1px solid var(--ha-border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.product-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--ha-border);
+}
+
+
+/* ---------- WOMEN PAGE STYLES (natural look) ---------- */
+.women-hero {
+  background: url("../images/women-hero.jpg") center/cover no-repeat;
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+.women-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+.women-hero .container {
+  position: relative;
+  z-index: 1;
+}
+.women-hero h1 {
+  font-size: 2.5rem;
+  color: var(--ha-white);
+  margin-bottom: 0.75rem;
+}
+.women-hero p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+/* Product Cards */
+.product-card {
+  background: var(--ha-white);
+  border: 1px solid var(--ha-border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.product-card img {
+  width: 100%;
+  height: 310px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--ha-border);
+}
+
+/* ---------- MAKING OF PAGE ---------- */
+.page-header h1 {
+  font-size: 2.4rem;
+  color: var(--ha-text);
+}
+.mockup-card img {
+  border: 1px solid var(--ha-border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.mockup-card img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+
+
+.arrivals-hero {
+  background: url("../images/new-hero.jpg") center/cover no-repeat;
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+.arrivals-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+.arrivals-hero .container {
+  position: relative;
+  z-index: 1;
+}
+.arrivals-hero h1 {
+  font-size: 2.6rem;
+  color: var(--ha-white);
+  margin-bottom: 0.75rem;
+}
+.arrivals-hero p {
+  color: rgba(255,255,255,0.9);
+  font-size: 1.1rem;
+  max-width: 550px;
+}
+
+/* Product cards reused from earlier pages */
+.product-card {
+  background: var(--ha-white);
+  border: 1px solid var(--ha-border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+}
+.product-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--ha-border);
+}
+
+/* ==============================
+   GLOBAL BACKGROUND IMAGE (ALL PAGES) — LIGHTER VERSION
+   ============================== */
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--ha-text);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url("../images/homepage/home-pic.jpg") center center / cover fixed no-repeat;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Keep white areas readable and soft */
+.section-light,
+.form-panel,
+.product-card {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(3px);
+  border-radius: 10px;
+}
+
+/* Ensure text inside white sections stays dark */
+.section-light h1, 
+.section-light h2, 
+.section-light h3, 
+.section-light p {
+  color: #111;
+}
+
+/* Navbar slightly see-through with blur */
+.ha-navbar {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+}
+
+
