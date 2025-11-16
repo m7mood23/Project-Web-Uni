@@ -3,13 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HypeAura — Making Of</title>
+  <title>HypeAura – Making Of</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    /* Make page titles bigger and cooler */
+    .page-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0a0a0a;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-left: 5px solid #e63946;
+      padding-left: 15px;
+      margin-bottom: 1.5rem;
+    }
+  </style>
 </head>
 <body>
 
@@ -17,8 +31,12 @@
   <header class="navbar navbar-expand-lg ha-navbar">
     <div class="container">
       <a class="navbar-brand fw-bold" href="home.html">HYPEAURA</a>
-      <nav class="ms-auto">
-        <ul class="navbar-nav text-uppercase fw-semibold small-gap">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <nav id="mainNav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto gap-lg-4 text-uppercase fw-semibold">
           <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="men.html">Men</a></li>
           <li class="nav-item"><a class="nav-link" href="women.html">Women</a></li>
@@ -45,28 +63,113 @@
     <div class="container">
       <h3 class="fw-bold mb-4 text-center">Design Mockups</h3>
       <p class="text-secondary text-center col-lg-8 mx-auto mb-5">
-        The initial mockups were sketched to plan the structure, spacing, and general style of each page. 
-        These low-fidelity designs helped decide how the brand identity would look on desktop and mobile.
+        We started by making mockups in Figma to plan out how everything would look. 
+        This helped us figure out the layout and spacing before we started coding.
       </p>
 
-      <div class="row g-4 justify-content-center">
-        <div class="col-md-5">
-          <div class="mockup-card">
-            <img src="images/mockup-home.jpg" alt="Home page mockup" class="img-fluid rounded shadow-sm">
-            <p class="small text-center text-muted mt-2">Home Page Layout</p>
+      <!-- 1. HOME PAGE MOCKUP -->
+      <div class="row g-4 justify-content-center mb-5">
+        <div class="col-md-10">
+          <h4 class="page-title">1. Home page</h4>
+          <div class="mockup-card bg-white p-4 rounded shadow-sm">
+            <img src="images/making-of/mockup-home.png" alt="Home page design" class="img-fluid rounded mb-3">
+            <p class="text-secondary mb-2">
+              The home page has a big hero image at the top to grab people's attention right away. 
+              We wanted visitors to see the brand vibe immediately when they land on the site.
+            </p>
+            <p class="text-secondary mb-2">
+              The registration form is on the home page so users can sign up easily without clicking 
+              around looking for it. Once they register, their name shows up on other pages which makes 
+              it feel more personal.
+            </p>
+            <p class="text-secondary mb-0">
+              <strong>Colors:</strong> We used black for the navbar to make it look sleek and professional. 
+              White backgrounds keep everything clean and easy to read. The red button stands out so people 
+              notice it and click to register.
+            </p>
           </div>
-        </div>
-        <div class="col-md-5">
-          <div class="mockup-card">
-            <img src="images/mockup-men.jpg" alt="Men’s page mockup" class="img-fluid rounded shadow-sm">
-            <p class="small text-center text-muted mt-2">Men’s Collection Layout</p>
-          </div>
+          <hr class="my-5">
         </div>
       </div>
+
+      <!-- 2. MEN'S PAGE MOCKUP -->
+      <div class="row g-4 justify-content-center mb-5">
+        <div class="col-md-10">
+          <h4 class="page-title">2. Men's page</h4>
+          <div class="mockup-card bg-white p-4 rounded shadow-sm">
+            <img src="images/making-of/mockup-men.png" alt="Men's page design" class="img-fluid rounded mb-3">
+            <p class="text-secondary mb-2">
+              The men's collection page starts with a hero banner that says "Men's Collection" so visitors 
+              immediately know what page they're on.
+            </p>
+            <p class="text-secondary mb-2">
+              We organized the products in a grid layout because that's how most shopping websites do it. 
+              This way customers already know how to use it without getting confused.
+            </p>
+            <p class="text-secondary mb-2">
+              Each product card shows the important stuff: product image, name, description, and price. 
+              This gives customers all the info they need to decide if they want to buy it.
+            </p>
+            <p class="text-secondary mb-0">
+              <strong>Button colors:</strong> The "Add to Cart" buttons are blue instead of red because they 
+              have a different purpose than the register button. Using different colors for different actions 
+              helps customers understand what each button does without getting confused.
+            </p>
+          </div>
+          <hr class="my-5">
+        </div>
+      </div>
+
+      <!-- 3. WOMEN'S PAGE MOCKUP -->
+      <div class="row g-4 justify-content-center mb-5">
+        <div class="col-md-10">
+          <h4 class="page-title">3. Women's page</h4>
+          <div class="mockup-card bg-white p-4 rounded shadow-sm">
+            <img src="images/making-of/mockup-women.png" alt="Women's page design" class="img-fluid rounded mb-3">
+            <p class="text-secondary mb-2">
+              The women's page uses the same layout as the men's page to keep everything consistent. 
+              We didn't want customers to get confused when they switch between different collection pages.
+            </p>
+            <p class="text-secondary mb-2">
+              The hero banner image is different to show the women's style and vibe. This way customers 
+              immediately know they're looking at women's products.
+            </p>
+            <p class="text-secondary mb-0">
+              <strong>Design consistency:</strong> We kept the same colors, button styles, and layout for 
+              all collection pages. This makes the website look professional and clean, not crazy with 
+              different colors everywhere. It's easier for customers to navigate when everything works the same way.
+            </p>
+          </div>
+          <hr class="my-5">
+        </div>
+      </div>
+
+      <!-- 4. NEW ARRIVALS PAGE MOCKUP -->
+      <div class="row g-4 justify-content-center mb-5">
+        <div class="col-md-10">
+          <h4 class="page-title">4. New Arrivals page</h4>
+          <div class="mockup-card bg-white p-4 rounded shadow-sm">
+            <img src="images/making-of/mockup-New-Arrivals.png" alt="New Arrivals page design" class="img-fluid rounded mb-3">
+            <p class="text-secondary mb-2">
+              We needed a 6th page for the project requirements, so we came up with the idea of a 
+              "New Arrivals" page to show the latest products that just came in.
+            </p>
+            <p class="text-secondary mb-2">
+              This page shows both men's and women's new products mixed together. Customers can see 
+              all the newest stuff in one place without having to check multiple pages.
+            </p>
+            <p class="text-secondary mb-0">
+              <strong>Same layout:</strong> We kept the same grid layout as the other collection pages 
+              for consistency. Customers already know how to browse products, so there's no need to change 
+              how it works.
+            </p>
+          </div>
+          <hr class="my-5">
+        </div>
+      </div>
+
     </div>
   </section>
-
-
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -75,7 +178,7 @@
         <div class="col-md-6">
           <h5 class="fw-bold mb-3">HYPEAURA</h5>
           <p class="muted mb-0">
-            Bahrain’s streetwear label for the modern generation — crafted with style, passion, and confidence.
+            Bahrain's streetwear label for the modern generation — crafted with style, passion, and confidence.
           </p>
         </div>
         <div class="col-md-6">
