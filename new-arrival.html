@@ -66,7 +66,6 @@
       <div class="col-lg-6 col-md-8 text-white">
         <h1 class="fw-bold">New Arrivals</h1>
         <p class="lead mb-4">Fresh drops, bold energy explore the latest styles that define the HypeAura movement.</p>
-        <!-- WELCOME MESSAGE -->
         <p id="welcome-message"></p>
         <a href="#new" class="btn btn-accent px-4 py-2">Explore Now</a>
       </div>
@@ -76,15 +75,24 @@
   <!-- FEATURED PRODUCTS -->
   <section id="new" class="section-light py-5">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="fw-bold">Latest Arrivals</h2>
-        <p class="text-secondary mb-0">Each new piece combines comfort, design, and streetwear confidence — made for trendsetters.</p>
+      <!-- HEADER WITH SORT DROPDOWN -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold mb-0">Latest Arrivals</h2>
+        <select id="sort-dropdown-arrivals" class="form-select" style="width: 200px;" onchange="sortProducts('arrivals')">
+          <option value="featured">Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+        </select>
       </div>
 
-      <div class="row g-4">
-        <div class="col-sm-6 col-md-4 col-lg-3">
+      <!-- PRODUCTS GRID -->
+      <div class="row g-4" id="product-container-arrivals">
+        
+        <!-- ROW 1: 4 PRODUCTS -->
+        
+        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="39.99">
           <div class="product-card">
-            <img src="images/new-arrival/signature-logo-hoodie.jpg" class="img-fluid" alt="Signature Logo Hoodie">
+            <img src="images/new-arrival/123.webp" class="img-fluid" alt="Signature Logo Hoodie">
             <div class="p-3">
               <h6 class="fw-semibold mb-1">Signature Logo Hoodie</h6>
               <p class="text-muted small mb-2">Limited Edition</p>
@@ -94,9 +102,9 @@
           </div>
         </div>
 
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="49.99">
           <div class="product-card">
-            <img src="images/new-arrival/ghraphic-overshirt.jpg" class="img-fluid" alt="Graphic Overshirt">
+            <img src="images/new-arrival/street snapback.jpg" class="img-fluid" alt="Graphic Overshirt">
             <div class="p-3">
               <h6 class="fw-semibold mb-1">Graphic Overshirt</h6>
               <p class="text-muted small mb-2">Seasonal Exclusive</p>
@@ -106,9 +114,9 @@
           </div>
         </div>
 
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="74.99">
           <div class="product-card">
-            <img src="images/new-arrival/retro-vaesity.jpg" class="img-fluid" alt="Retro Varsity Jacket">
+            <img src="images/new-arrival/ghraphic overshirt.jpg" class="img-fluid" alt="Retro Varsity Jacket">
             <div class="p-3">
               <h6 class="fw-semibold mb-1">Retro Varsity Jacket</h6>
               <p class="text-muted small mb-2">Fall Capsule Drop</p>
@@ -118,9 +126,9 @@
           </div>
         </div>
 
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="34.99">
           <div class="product-card">
-            <img src="images/new-arrival/minimal-track-pants.jpg" class="img-fluid" alt="Minimal Track Pants">
+            <img src="images/new-arrival/cropped denim.jpg" class="img-fluid" alt="Minimal Track Pants">
             <div class="p-3">
               <h6 class="fw-semibold mb-1">Minimal Track Pants</h6>
               <p class="text-muted small mb-2">Slim fit, soft feel</p>
@@ -130,9 +138,11 @@
           </div>
         </div>
 
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <!-- ROW 2: 4 PRODUCTS (2 real + 2 placeholder) -->
+
+        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="14.99">
           <div class="product-card">
-            <img src="images/new-arrival/street-snapback.jpg" class="img-fluid" alt="Street Snapback Cap">
+            <img src="images/new-arrival/retro vaesity.jpg" class="img-fluid" alt="Street Snapback Cap">
             <div class="p-3">
               <h6 class="fw-semibold mb-1">Street Snapback Cap</h6>
               <p class="text-muted small mb-2">Everyday street fit</p>
@@ -142,9 +152,9 @@
           </div>
         </div>
 
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="55.99">
           <div class="product-card">
-            <img src="images/new-arrival/cropped-denim.jpg" class="img-fluid" alt="Cropped Denim Jacket">
+            <img src="images/new-arrival/signature logo hoodie.jpg" class="img-fluid" alt="Cropped Denim Jacket">
             <div class="p-3">
               <h6 class="fw-semibold mb-1">Cropped Denim Jacket</h6>
               <p class="text-muted small mb-2">New in for Spring</p>
@@ -153,7 +163,136 @@
             </div>
           </div>
         </div>
+
+        <!-- PLACEHOLDER PRODUCT 7 -->
+        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="0.00">
+          <div class="product-card">
+            <div style="height: 300px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+              <span style="font-size: 3rem; color: #ccc;">✕</span>
+            </div>
+            <div class="p-3">
+              <h6 class="fw-semibold mb-1">Product Name</h6>
+              <p class="text-muted small mb-2">Description here</p>
+              <p class="fw-bold mb-3">BHD 0.00</p>
+              <button class="btn btn-add-cart" disabled>Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLACEHOLDER PRODUCT 8 -->
+        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="0.00">
+          <div class="product-card">
+            <div style="height: 300px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+              <span style="font-size: 3rem; color: #ccc;">✕</span>
+            </div>
+            <div class="p-3">
+              <h6 class="fw-semibold mb-1">Product Name</h6>
+              <p class="text-muted small mb-2">Description here</p>
+              <p class="fw-bold mb-3">BHD 0.00</p>
+              <button class="btn btn-add-cart" disabled>Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
       </div>
+
+      <!-- ROW 3: BACKGROUND IMAGES SECTION -->
+      <div class="row g-3 my-5">
+        <!-- LEFT: GREEN-MAN DISCOUNT IMAGE (33% WIDTH) -->
+        <div class="col-md-4">
+          <div style="height: 600px; overflow: hidden; border-radius: 8px;">
+            <img src="images/new-arrival/green-man.jpg" alt="Green Man Discount" class="img-fluid w-100 h-100" style="object-fit: cover;">
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN (3 IMAGES - 67% WIDTH) -->
+        <div class="col-md-8">
+          <!-- TOP: BANNER IMAGE -->
+          <div class="mb-3" style="height: 290px; overflow: hidden; border-radius: 8px;">
+            <img src="images/new-arrival/banner.jpg" alt="New Arrivals Banner" class="img-fluid w-100 h-100" style="object-fit: cover;">
+          </div>
+          
+          <!-- BOTTOM: TWO IMAGES SIDE BY SIDE -->
+          <div class="row g-3">
+            <div class="col-6">
+              <div style="height: 290px; overflow: hidden; border-radius: 8px;">
+                <img src="images/new-arrival/women-view.jpg" alt="Women View" class="img-fluid w-100 h-100" style="object-fit: cover;">
+              </div>
+            </div>
+            <div class="col-6">
+              <div style="height: 290px; overflow: hidden; border-radius: 8px;">
+                <img src="images/new-arrival/men-and-women.jpg" alt="Men and Women" class="img-fluid w-100 h-100" style="object-fit: cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 4: MORE PRODUCTS -->
+      <div class="row g-4">
+
+        <!-- PLACEHOLDER PRODUCT 9 -->
+        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="0.00">
+          <div class="product-card">
+            <div style="height: 300px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+              <span style="font-size: 3rem; color: #ccc;">✕</span>
+            </div>
+            <div class="p-3">
+              <h6 class="fw-semibold mb-1">Product Name</h6>
+              <p class="text-muted small mb-2">Description here</p>
+              <p class="fw-bold mb-3">BHD 0.00</p>
+              <button class="btn btn-add-cart" disabled>Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLACEHOLDER PRODUCT 10 -->
+        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="0.00">
+          <div class="product-card">
+            <div style="height: 300px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+              <span style="font-size: 3rem; color: #ccc;">✕</span>
+            </div>
+            <div class="p-3">
+              <h6 class="fw-semibold mb-1">Product Name</h6>
+              <p class="text-muted small mb-2">Description here</p>
+              <p class="fw-bold mb-3">BHD 0.00</p>
+              <button class="btn btn-add-cart" disabled>Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLACEHOLDER PRODUCT 11 -->
+        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="0.00">
+          <div class="product-card">
+            <div style="height: 300px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+              <span style="font-size: 3rem; color: #ccc;">✕</span>
+            </div>
+            <div class="p-3">
+              <h6 class="fw-semibold mb-1">Product Name</h6>
+              <p class="text-muted small mb-2">Description here</p>
+              <p class="fw-bold mb-3">BHD 0.00</p>
+              <button class="btn btn-add-cart" disabled>Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLACEHOLDER PRODUCT 12 -->
+        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="0.00">
+          <div class="product-card">
+            <div style="height: 300px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+              <span style="font-size: 3rem; color: #ccc;">✕</span>
+            </div>
+            <div class="p-3">
+              <h6 class="fw-semibold mb-1">Product Name</h6>
+              <p class="text-muted small mb-2">Description here</p>
+              <p class="fw-bold mb-3">BHD 0.00</p>
+              <button class="btn btn-add-cart" disabled>Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </section>
 

@@ -12,17 +12,15 @@ document.addEventListener("DOMContentLoaded", function() {
   renderCartItems();
   setupAddToCartButtons();
   setupFormValidation();
-  checkPageReload();  // ✅ Check if page was reloaded
+  checkPageReload();
   displayWelcomeMessage();
 });
 
 // ========== CHECK IF PAGE WAS RELOADED ==========
 function checkPageReload() {
-  // Check if this is a page reload (F5 or refresh button)
   const navEntries = performance.getEntriesByType("navigation");
   
   if (navEntries.length > 0 && navEntries[0].type === "reload") {
-    // User clicked reload - clear the welcome flag from sessionStorage
     sessionStorage.removeItem("hypeaura-show-welcome");
   }
 }
@@ -55,7 +53,6 @@ function addToCart(name, price, image) {
     });
   }
   
-  // ========== LOCALSTORAGE - Save cart data (permanent) ==========
   localStorage.setItem("hypeaura-cart", JSON.stringify(cart));
   
   updateCartCount();
@@ -67,7 +64,6 @@ function addToCart(name, price, image) {
 function removeFromCart(index) {
   cart.splice(index, 1);
   
-  // ========== LOCALSTORAGE - Save updated cart (permanent) ==========
   localStorage.setItem("hypeaura-cart", JSON.stringify(cart));
   
   updateCartCount();
@@ -149,13 +145,11 @@ function setupFormValidation() {
   const mobile = document.getElementById("mobile");
   const email = document.getElementById("email");
   
-  // Real-time validation
   if (firstName) firstName.addEventListener("input", function() { validateName(this, "First name"); });
   if (lastName) lastName.addEventListener("input", function() { validateName(this, "Last name"); });
   if (mobile) mobile.addEventListener("input", function() { validateMobile(this); });
   if (email) email.addEventListener("input", function() { validateEmail(this); });
   
-  // Form submit
   form.addEventListener("submit", function(e) {
     e.preventDefault();
     
@@ -167,7 +161,6 @@ function setupFormValidation() {
     if (!validateEmail(email)) isValid = false;
     
     if (isValid) {
-      // ========== LOCALSTORAGE - Save user data (permanent) ==========
       const userData = {
         firstName: firstName.value.trim(),
         lastName: lastName.value.trim(),
@@ -176,17 +169,13 @@ function setupFormValidation() {
       };
       localStorage.setItem("hypeaura-user", JSON.stringify(userData));
       
-      // ========== SESSIONSTORAGE - Set flag to show welcome message (temporary) ==========
       sessionStorage.setItem("hypeaura-show-welcome", "true");
       
-      // Scroll to top to show welcome message
       window.scrollTo({ top: 0, behavior: 'smooth' });
       
-      // Clear form
       form.reset();
       clearAllErrors();
       
-      // Update welcome message
       displayWelcomeMessage();
     }
   });
@@ -293,19 +282,57 @@ function clearAllErrors() {
 // ==============================
 
 function displayWelcomeMessage() {
-  // ========== SESSIONSTORAGE - Check if we should show welcome (temporary) ==========
   const showWelcome = sessionStorage.getItem("hypeaura-show-welcome");
   
-  // ========== LOCALSTORAGE - Get user data (permanent) ==========
   const userData = JSON.parse(localStorage.getItem("hypeaura-user"));
   
   const welcomeElement = document.getElementById("welcome-message");
   
-  // Show if flag is set AND user data exists
   if (welcomeElement && showWelcome === "true" && userData && userData.firstName) {
     welcomeElement.textContent = "Hello, " + userData.firstName + " " + userData.lastName + "!";
     welcomeElement.style.display = "block";
   } else if (welcomeElement) {
     welcomeElement.style.display = "none";
   }
+}
+
+// ==============================
+// PRODUCT SORTING FUNCTION
+// ==============================
+
+function sortProducts(page) {
+  // Get the dropdown value
+  var sortValue = document.getElementById("sort-dropdown-" + page).value;
+  
+  // Get the product container
+  var container = document.getElementById("product-container-" + page);
+  
+  // Get all product items
+  var products = Array.from(container.getElementsByClassName("product-item"));
+  
+  // Sort based on selected option
+  if (sortValue === "price-low") {
+    // Sort: Price Low to High
+    products.sort(function(a, b) {
+      var priceA = parseFloat(a.getAttribute("data-price"));
+      var priceB = parseFloat(b.getAttribute("data-price"));
+      return priceA - priceB;
+    });
+  } else if (sortValue === "price-high") {
+    // Sort: Price High to Low
+    products.sort(function(a, b) {
+      var priceA = parseFloat(a.getAttribute("data-price"));
+      var priceB = parseFloat(b.getAttribute("data-price"));
+      return priceB - priceA;
+    });
+  }
+  // If "featured", do nothing (keep original order)
+  
+  // Clear container
+  container.innerHTML = "";
+  
+  // Re-append sorted products
+  products.forEach(function(product) {
+    container.appendChild(product);
+  });
 }
