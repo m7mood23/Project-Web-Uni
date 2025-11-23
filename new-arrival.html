@@ -4,11 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>HypeAura — New Arrivals</title>
-
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -17,8 +13,11 @@
   <header class="navbar navbar-expand-lg ha-navbar">
     <div class="container">
       <a class="navbar-brand fw-bold" href="home.html">HYPEAURA</a>
-      <nav class="ms-auto">
-        <ul class="navbar-nav text-uppercase fw-semibold small-gap">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <nav id="mainNav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto gap-lg-4 text-uppercase fw-semibold">
           <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="men.html">Men</a></li>
           <li class="nav-item"><a class="nav-link" href="women.html">Women</a></li>
@@ -26,9 +25,39 @@
           <li class="nav-item"><a class="nav-link" href="making-of.html">Making Of</a></li>
           <li class="nav-item"><a class="nav-link" href="our-story.html">Our Story</a></li>
         </ul>
+        <div class="cart-icon" onclick="openCart()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+          <span id="cart-count">0</span>
+        </div>
       </nav>
     </div>
   </header>
+
+  <!-- CART OVERLAY -->
+  <div id="cart-overlay" onclick="closeCart()"></div>
+
+  <!-- CART SIDEBAR -->
+  <div id="cart-sidebar">
+    <div class="cart-header">
+      <h5>Your Cart</h5>
+      <button class="cart-close" onclick="closeCart()">×</button>
+    </div>
+    <div class="cart-body">
+      <div id="cart-empty">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        <h6>Your shopping cart is empty.</h6>
+        <p>Why don't you fill it in with some of our suggestions?</p>
+      </div>
+      <div id="cart-items"></div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>Total:</span>
+        <strong>BHD <span id="cart-total">0.00</span></strong>
+      </div>
+      <button class="btn btn-accent">Checkout</button>
+    </div>
+  </div>
 
   <!-- HERO -->
   <section class="hero-section arrivals-hero d-flex align-items-center">
@@ -36,9 +65,9 @@
     <div class="container">
       <div class="col-lg-6 col-md-8 text-white">
         <h1 class="fw-bold">New Arrivals</h1>
-        <p class="lead mb-4">
-          Fresh drops, bold energy — explore the latest styles that define the HypeAura movement.
-        </p>
+        <p class="lead mb-4">Fresh drops, bold energy explore the latest styles that define the HypeAura movement.</p>
+        <!-- WELCOME MESSAGE -->
+        <p id="welcome-message"></p>
         <a href="#new" class="btn btn-accent px-4 py-2">Explore Now</a>
       </div>
     </div>
@@ -49,86 +78,78 @@
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="fw-bold">Latest Arrivals</h2>
-        <p class="text-secondary mb-0">
-          Each new piece combines comfort, design, and streetwear confidence — made for trendsetters.
-        </p>
+        <p class="text-secondary mb-0">Each new piece combines comfort, design, and streetwear confidence — made for trendsetters.</p>
       </div>
 
       <div class="row g-4">
-        <!-- Product 1 -->
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="product-card">
-            <img src="images/new arrival/signature logo hoodie.jpg" class="img-fluid" alt="Signature Logo Hoodie">
+            <img src="images/new-arrival/signature-logo-hoodie.jpg" class="img-fluid" alt="Signature Logo Hoodie">
             <div class="p-3">
               <h6 class="fw-semibold mb-1">Signature Logo Hoodie</h6>
               <p class="text-muted small mb-2">Limited Edition</p>
               <p class="fw-bold mb-3">BHD 39.99</p>
-              <button class="btn btn-accent w-100">Add to Cart</button>
+              <button class="btn btn-add-cart" data-name="Signature Logo Hoodie" data-price="39.99" data-image="images/new-arrival/signature-logo-hoodie.jpg">Add to Cart</button>
             </div>
           </div>
         </div>
 
-        <!-- Product 2 -->
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="product-card">
-            <img src="images/new arrival/ghraphic overshirt.jpg" class="img-fluid" alt="Graphic Overshirt">
+            <img src="images/new-arrival/ghraphic-overshirt.jpg" class="img-fluid" alt="Graphic Overshirt">
             <div class="p-3">
               <h6 class="fw-semibold mb-1">Graphic Overshirt</h6>
               <p class="text-muted small mb-2">Seasonal Exclusive</p>
               <p class="fw-bold mb-3">BHD 49.99</p>
-              <button class="btn btn-accent w-100">Add to Cart</button>
+              <button class="btn btn-add-cart" data-name="Graphic Overshirt" data-price="49.99" data-image="images/new-arrival/ghraphic-overshirt.jpg">Add to Cart</button>
             </div>
           </div>
         </div>
 
-        <!-- Product 3 -->
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="product-card">
-            <img src="images/new arrival/retro vaesity.jpg" class="img-fluid" alt="Retro Varsity Jacket">
+            <img src="images/new-arrival/retro-vaesity.jpg" class="img-fluid" alt="Retro Varsity Jacket">
             <div class="p-3">
               <h6 class="fw-semibold mb-1">Retro Varsity Jacket</h6>
               <p class="text-muted small mb-2">Fall Capsule Drop</p>
               <p class="fw-bold mb-3">BHD 74.99</p>
-              <button class="btn btn-accent w-100">Add to Cart</button>
+              <button class="btn btn-add-cart" data-name="Retro Varsity Jacket" data-price="74.99" data-image="images/new-arrival/retro-vaesity.jpg">Add to Cart</button>
             </div>
           </div>
         </div>
 
-        <!-- Product 4 -->
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="product-card">
-            <img src="images/new arrival/minimal track pants.jpg" class="img-fluid" alt="Minimal Track Pants">
+            <img src="images/new-arrival/minimal-track-pants.jpg" class="img-fluid" alt="Minimal Track Pants">
             <div class="p-3">
               <h6 class="fw-semibold mb-1">Minimal Track Pants</h6>
               <p class="text-muted small mb-2">Slim fit, soft feel</p>
               <p class="fw-bold mb-3">BHD 34.99</p>
-              <button class="btn btn-accent w-100">Add to Cart</button>
+              <button class="btn btn-add-cart" data-name="Minimal Track Pants" data-price="34.99" data-image="images/new-arrival/minimal-track-pants.jpg">Add to Cart</button>
             </div>
           </div>
         </div>
 
-        <!-- Product 5 -->
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="product-card">
-            <img src="images/new arrival/street snapback.jpg" class="img-fluid" alt="Street Snapback Cap">
+            <img src="images/new-arrival/street-snapback.jpg" class="img-fluid" alt="Street Snapback Cap">
             <div class="p-3">
               <h6 class="fw-semibold mb-1">Street Snapback Cap</h6>
               <p class="text-muted small mb-2">Everyday street fit</p>
               <p class="fw-bold mb-3">BHD 14.99</p>
-              <button class="btn btn-accent w-100">Add to Cart</button>
+              <button class="btn btn-add-cart" data-name="Street Snapback Cap" data-price="14.99" data-image="images/new-arrival/street-snapback.jpg">Add to Cart</button>
             </div>
           </div>
         </div>
 
-        <!-- Product 6 -->
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="product-card">
-            <img src="images/new arrival/cropped denim.jpg" class="img-fluid" alt="Cropped Denim Jacket">
+            <img src="images/new-arrival/cropped-denim.jpg" class="img-fluid" alt="Cropped Denim Jacket">
             <div class="p-3">
               <h6 class="fw-semibold mb-1">Cropped Denim Jacket</h6>
               <p class="text-muted small mb-2">New in for Spring</p>
               <p class="fw-bold mb-3">BHD 55.99</p>
-              <button class="btn btn-accent w-100">Add to Cart</button>
+              <button class="btn btn-add-cart" data-name="Cropped Denim Jacket" data-price="55.99" data-image="images/new-arrival/cropped-denim.jpg">Add to Cart</button>
             </div>
           </div>
         </div>
@@ -142,9 +163,7 @@
       <div class="row g-4">
         <div class="col-md-6">
           <h5 class="fw-bold mb-3">HYPEAURA</h5>
-          <p class="muted mb-0">
-            Bahrain’s streetwear label for the modern generation — crafted with style, passion, and confidence.
-          </p>
+          <p class="muted mb-0">Bahrain's streetwear label for the modern generation — crafted with style, passion, and confidence.</p>
         </div>
         <div class="col-md-6">
           <h6 class="fw-semibold mb-2">Contact Us</h6>
@@ -163,5 +182,6 @@
     </div>
   </footer>
 
+  <script src="js/script.js"></script>
 </body>
 </html>
