@@ -25,6 +25,12 @@
           <li class="nav-item"><a class="nav-link" href="making-of.html">Making Of</a></li>
           <li class="nav-item"><a class="nav-link" href="our-story.html">Our Story</a></li>
         </ul>
+        
+        <!-- WELCOME MESSAGE IN NAVBAR -->
+        <div class="welcome-nav" id="welcome-nav" style="display: none;">
+          Welcome <span id="user-name-nav">Guest</span>
+        </div>
+        
         <div class="cart-icon" onclick="openCart()">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
           <span id="cart-count">0</span>
@@ -66,7 +72,6 @@
       <div class="col-lg-6 col-md-8 text-white">
         <h1 class="fw-bold">Women Collection</h1>
         <p class="lead mb-4">Confidence. Creativity. Comfort. Our women line blends soft textures with strong character designed for everyday expression.</p>
-        <p id="welcome-message"></p>
         <a href="#collection" class="btn btn-accent px-4 py-2">Shop Now</a>
       </div>
     </div>
@@ -85,210 +90,219 @@
         </select>
       </div>
 
-      <!-- PRODUCTS GRID -->
-      <div class="row g-4" id="product-container-women">
+      <!-- MAIN CONTAINER - ALL PRODUCTS INSIDE HERE -->
+      <div id="product-container-women">
         
         <!-- ROW 1: 4 PRODUCTS -->
-        
-        <!-- PRODUCT 1 -->
-        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="32.99">
-          <div class="product-card">
-            <img src="images/women/oversized.jpg" alt="Oversized Hoodie" class="img-fluid">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Oversized Hoodie</h6>
-              <p class="text-muted small mb-2">Relaxed fit, soft cotton blend</p>
-              <p class="fw-bold mb-3">BHD 32.99</p>
-              <button class="btn btn-add-cart" data-name="Oversized Hoodie" data-price="32.99" data-image="images/women/oversized.jpg">Add to Cart</button>
+        <div class="row g-4">
+          
+          <!-- PRODUCT 1 -->
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="32.99">
+            <div class="product-card">
+              <img src="images/women/oversized.jpg" alt="Oversized Hoodie" class="img-fluid">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Oversized Hoodie</h6>
+                <p class="text-muted small mb-2">Relaxed fit, soft cotton blend</p>
+                <p class="fw-bold mb-3">BHD 32.99</p>
+                <button class="btn btn-add-cart" data-name="Oversized Hoodie" data-price="32.99" data-image="images/women/oversized.jpg">Add to Cart</button>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- PRODUCT 2 -->
-        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="42.99">
-          <div class="product-card">
-            <img src="images/women/casual dress.jpg" alt="Casual Dress" class="img-fluid">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Casual Dress</h6>
-              <p class="text-muted small mb-2">Lightweight and versatile</p>
-              <p class="fw-bold mb-3">BHD 42.99</p>
-              <button class="btn btn-add-cart" data-name="Casual Dress" data-price="42.99" data-image="images/women/casual dress.jpg">Add to Cart</button>
+          <!-- PRODUCT 2 -->
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="42.99">
+            <div class="product-card">
+              <img src="images/women/casual dress.jpg" alt="Casual Dress" class="img-fluid">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Casual Dress</h6>
+                <p class="text-muted small mb-2">Lightweight and versatile</p>
+                <p class="fw-bold mb-3">BHD 42.99</p>
+                <button class="btn btn-add-cart" data-name="Casual Dress" data-price="42.99" data-image="images/women/casual dress.jpg">Add to Cart</button>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- PRODUCT 3 -->
-        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="18.99">
-          <div class="product-card">
-            <img src="images/women/essential tee.jpg" alt="Essential Tee" class="img-fluid">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Essential Tee</h6>
-              <p class="text-muted small mb-2">Everyday comfort piece</p>
-              <p class="fw-bold mb-3">BHD 18.99</p>
-              <button class="btn btn-add-cart" data-name="Essential Tee" data-price="18.99" data-image="images/women/essential tee.jpg">Add to Cart</button>
+          <!-- PRODUCT 3 -->
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="18.99">
+            <div class="product-card">
+              <img src="images/women/essential tee.jpg" alt="Essential Tee" class="img-fluid">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Essential Tee</h6>
+                <p class="text-muted small mb-2">Everyday comfort piece</p>
+                <p class="fw-bold mb-3">BHD 18.99</p>
+                <button class="btn btn-add-cart" data-name="Essential Tee" data-price="18.99" data-image="images/women/essential tee.jpg">Add to Cart</button>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- PRODUCT 4 -->
-        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="45.99">
-          <div class="product-card">
-            <img src="images/women/tailored trousers.jpg" alt="Tailored Trousers" class="img-fluid">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Tailored Trousers</h6>
-              <p class="text-muted small mb-2">Urban utility elegance</p>
-              <p class="fw-bold mb-3">BHD 45.99</p>
-              <button class="btn btn-add-cart" data-name="Tailored Trousers" data-price="45.99" data-image="images/women/tailored trousers.jpg">Add to Cart</button>
+          <!-- PRODUCT 4 -->
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="45.99">
+            <div class="product-card">
+              <img src="images/women/tailored trousers.jpg" alt="Tailored Trousers" class="img-fluid">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Tailored Trousers</h6>
+                <p class="text-muted small mb-2">Urban utility elegance</p>
+                <p class="fw-bold mb-3">BHD 45.99</p>
+                <button class="btn btn-add-cart" data-name="Tailored Trousers" data-price="45.99" data-image="images/women/tailored trousers.jpg">Add to Cart</button>
+              </div>
             </div>
           </div>
+
         </div>
 
         <!-- ROW 2: 4 PRODUCTS -->
+        <div class="row g-4 mt-1">
 
-        <!-- PRODUCT 5 -->
-        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="58.99">
-          <div class="product-card">
-            <img src="images/women/fashion jacket.jpg" alt="Fashion Jacket" class="img-fluid">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Fashion Jacket</h6>
-              <p class="text-muted small mb-2">Effortlessly bold</p>
-              <p class="fw-bold mb-3">BHD 58.99</p>
-              <button class="btn btn-add-cart" data-name="Fashion Jacket" data-price="58.99" data-image="images/women/fashion jacket.jpg">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- PRODUCT 6 -->
-        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="89.99">
-          <div class="product-card">
-            <img src="images/women/designer coat.jpg" alt="Designer Coat" class="img-fluid">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Designer Coat</h6>
-              <p class="text-muted small mb-2">Classic statement piece</p>
-              <p class="fw-bold mb-3">BHD 89.99</p>
-              <button class="btn btn-add-cart" data-name="Designer Coat" data-price="89.99" data-image="images/women/designer coat.jpg">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- PLACEHOLDER PRODUCT 7 -->
-         <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="28.99">
-          <div class="product-card">
-            <img src="images/women/the Usual Hoodie.png" alt="the Usual Hoodie" class="img-fluid">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">the Usual Hoodie</h6>
-              <p class="text-muted small mb-2">warmth wear</p>
-              <p class="fw-bold mb-3">BHD 28.99</p>
-              <button class="btn btn-add-cart" data-name="the Usual Hoodie" data-price="28.99" data-image="images/women/the Usual Hoodie.png">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- PLACEHOLDER PRODUCT 8 -->
-         <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="20">
-          <div class="product-card">
-            <img src="images/women/Straight Leg Pant.png" alt="Straight Leg Pant" class="img-fluid">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Straight Leg Pant</h6>
-              <p class="text-muted small mb-2">cosy comfort</p>
-              <p class="fw-bold mb-3">BHD 20</p>
-              <button class="btn btn-add-cart" data-name="Straight Leg Pant" data-price="20" data-image="images/women/Straight Leg Pant.png">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-      <!-- ROW 3: BACKGROUND IMAGES SECTION -->
-      <div class="row g-3 my-5">
-        <!-- LEFT: DISCOUNT IMAGE (WIDER NOW - 33%) -->
-        <div class="col-md-4">
-          <div style="height: 600px; overflow: hidden; border-radius: 8px;">
-            <img src="images/women/women-discount.jpg" alt="Women Discount" class="img-fluid w-100 h-100" style="object-fit: cover;">
-          </div>
-        </div>
-
-        <!-- RIGHT COLUMN (3 IMAGES - 67%) -->
-        <div class="col-md-8">
-          <!-- TOP: BANNER IMAGE -->
-          <div class="mb-3" style="height: 290px; overflow: hidden; border-radius: 8px;">
-            <img src="images/women/women-banner.jpg" alt="Women Banner" class="img-fluid w-100 h-100" style="object-fit: cover;">
-          </div>
-          
-          <!-- BOTTOM: TWO IMAGES SIDE BY SIDE -->
-          <div class="row g-3">
-            <div class="col-6">
-              <div style="height: 290px; overflow: hidden; border-radius: 8px;">
-                <img src="images/women/women-view.jpg" alt="Women View" class="img-fluid w-100 h-100" style="object-fit: cover;">
-              </div>
-            </div>
-            <div class="col-6">
-              <div style="height: 290px; overflow: hidden; border-radius: 8px;">
-                <img src="images/women/women-tea.jpg" alt="Women Tea" class="img-fluid w-100 h-100" style="object-fit: cover;">
+          <!-- PRODUCT 5 -->
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="58.99">
+            <div class="product-card">
+              <img src="images/women/fashion jacket.jpg" alt="Fashion Jacket" class="img-fluid">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Fashion Jacket</h6>
+                <p class="text-muted small mb-2">Effortlessly bold</p>
+                <p class="fw-bold mb-3">BHD 58.99</p>
+                <button class="btn btn-add-cart" data-name="Fashion Jacket" data-price="58.99" data-image="images/women/fashion jacket.jpg">Add to Cart</button>
               </div>
             </div>
           </div>
+
+          <!-- PRODUCT 6 -->
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="89.99">
+            <div class="product-card">
+              <img src="images/women/designer coat.jpg" alt="Designer Coat" class="img-fluid">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Designer Coat</h6>
+                <p class="text-muted small mb-2">Classic statement piece</p>
+                <p class="fw-bold mb-3">BHD 89.99</p>
+                <button class="btn btn-add-cart" data-name="Designer Coat" data-price="89.99" data-image="images/women/designer coat.jpg">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PRODUCT 7 -->
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="28.99">
+            <div class="product-card">
+              <img src="images/women/the Usual Hoodie.png" alt="the Usual Hoodie" class="img-fluid">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">the Usual Hoodie</h6>
+                <p class="text-muted small mb-2">warmth wear</p>
+                <p class="fw-bold mb-3">BHD 28.99</p>
+                <button class="btn btn-add-cart" data-name="the Usual Hoodie" data-price="28.99" data-image="images/women/the Usual Hoodie.png">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PRODUCT 8 -->
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="20.00">
+            <div class="product-card">
+              <img src="images/women/Straight Leg Pant.png" alt="Straight Leg Pant" class="img-fluid">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Straight Leg Pant</h6>
+                <p class="text-muted small mb-2">cosy comfort</p>
+                <p class="fw-bold mb-3">BHD 20.00</p>
+                <button class="btn btn-add-cart" data-name="Straight Leg Pant" data-price="20.00" data-image="images/women/Straight Leg Pant.png">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
         </div>
+
+        <!-- ROW 3: BACKGROUND IMAGES SECTION -->
+        <div class="row g-3 my-5">
+          <!-- LEFT: DISCOUNT IMAGE (WIDER NOW - 33%) -->
+          <div class="col-md-4">
+            <div style="height: 600px; overflow: hidden; border-radius: 8px;">
+              <img src="images/women/women-discount.jpg" alt="Women Discount" class="img-fluid w-100 h-100" style="object-fit: cover;">
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN (3 IMAGES - 67%) -->
+          <div class="col-md-8">
+            <!-- TOP: BANNER IMAGE -->
+            <div class="mb-3" style="height: 290px; overflow: hidden; border-radius: 8px;">
+              <img src="images/women/women-banner.jpg" alt="Women Banner" class="img-fluid w-100 h-100" style="object-fit: cover;">
+            </div>
+            
+            <!-- BOTTOM: TWO IMAGES SIDE BY SIDE -->
+            <div class="row g-3">
+              <div class="col-6">
+                <div style="height: 290px; overflow: hidden; border-radius: 8px;">
+                  <img src="images/women/women-view.jpg" alt="Women View" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                </div>
+              </div>
+              <div class="col-6">
+                <div style="height: 290px; overflow: hidden; border-radius: 8px;">
+                  <img src="images/women/women-tea.jpg" alt="Women Tea" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROW 4: MORE PRODUCTS -->
+        <div class="row g-4">
+
+          <!-- PRODUCT 9 -->
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="25.00">
+            <div class="product-card">
+              <img src="images/women/Casta Knit Pants.png" alt="Casta Knit Pants" class="img-fluid">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Casta Knit Pants</h6>
+                <p class="text-muted small mb-2">comfy pants</p>
+                <p class="fw-bold mb-3">BHD 25.00</p>
+                <button class="btn btn-add-cart" data-name="Casta Knit Pants" data-price="25.00" data-image="images/women/Casta Knit Pants.png">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PRODUCT 10 -->
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="27.99">
+            <div class="product-card">
+              <img src="images/women/Felix Paisley Jeans.png" alt="Felix Paisley Jean" class="img-fluid">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Felix Paisley Jean</h6>
+                <p class="text-muted small mb-2">Classic statement</p>
+                <p class="fw-bold mb-3">BHD 27.99</p>
+                <button class="btn btn-add-cart" data-name="Felix Paisley Jean" data-price="27.99" data-image="images/women/Felix Paisley Jeans.png">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PRODUCT 11 -->
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="26.99">
+            <div class="product-card">
+              <img src="images/women/Oversized Hoodie.png" alt="Oversized Hoodie" class="img-fluid">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Oversized Hoodie</h6>
+                <p class="text-muted small mb-2">chilled wear</p>
+                <p class="fw-bold mb-3">BHD 26.99</p>
+                <button class="btn btn-add-cart" data-name="Oversized Hoodie" data-price="26.99" data-image="images/women/Oversized Hoodie.png">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PRODUCT 12 -->
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="40.00">
+            <div class="product-card">
+              <img src="images/women/Forest Green.png" alt="Forest Green" class="img-fluid">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Forest Green</h6>
+                <p class="text-muted small mb-2">winter coat</p>
+                <p class="fw-bold mb-3">BHD 40.00</p>
+                <button class="btn btn-add-cart" data-name="Forest Green" data-price="40.00" data-image="images/women/Forest Green.png">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
-
-      <!-- ROW 4: MORE PRODUCTS -->
-      <div class="row g-4">
-
-        <!-- PLACEHOLDER PRODUCT 9 -->
-        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="25">
-          <div class="product-card">
-            <img src="images/women/Casta Knit Pants.png" alt="Casta Knit Pants" class="img-fluid">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Casta Knit Pants</h6>
-              <p class="text-muted small mb-2">comfy pants</p>
-              <p class="fw-bold mb-3">BHD 25</p>
-              <button class="btn btn-add-cart" data-name="Casta Knit Pants" data-price="25" data-image="images/women/Casta Knit Pants.png">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- PLACEHOLDER PRODUCT 10 -->
-       <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="27.99">
-          <div class="product-card">
-            <img src="images/women/Felix Paisley Jeans.png" alt="Felix Paisley Jean" class="img-fluid">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Felix Paisley Jean</h6>
-              <p class="text-muted small mb-2">Classic statement</p>
-              <p class="fw-bold mb-3">BHD 27.99</p>
-              <button class="btn btn-add-cart" data-name="Felix Paisley Jean" data-price="27.99" data-image="images/women/Felix Paisley Jeans.png">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-        <!-- PLACEHOLDER PRODUCT 11 -->
-       <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="26.99">
-          <div class="product-card">
-            <img src="images/women/Oversized Hoodie.png" alt="Oversized Hoodie" class="img-fluid">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Oversized Hoodie</h6>
-              <p class="text-muted small mb-2">chilled wear</p>
-              <p class="fw-bold mb-3">BHD 26.99</p>
-              <button class="btn btn-add-cart" data-name="Oversized Hoodie" data-price="26.99" data-image="images/women/Oversized Hoodie.png">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- PLACEHOLDER PRODUCT 12 -->
-         <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="40">
-          <div class="product-card">
-            <img src="images/women/Forest Green.png" alt="Forest Green" class="img-fluid">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Forest Green</h6>
-              <p class="text-muted small mb-2">winter coat</p>
-              <p class="fw-bold mb-3">BHD 40</p>
-              <button class="btn btn-add-cart" data-name="Forest Green" data-price="40" data-image="images/women/Forest Green.png">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-
-      </div>
+      <!-- END OF PRODUCT CONTAINER -->
 
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- FOOTER - FIXED! -->
   <footer class="site-footer">
     <div class="container">
       <div class="row g-4">
@@ -296,11 +310,11 @@
           <h5 class="fw-bold mb-3">HYPEAURA</h5>
           <p class="muted mb-0">Celebrating individuality and creativity through everyday fashion. Made in Bahrain, for the world.</p>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 text-md-end">
           <h6 class="fw-semibold mb-2">Contact Us</h6>
           <ul class="list-unstyled small mb-0">
-            <li>Email: info@hypeaura.com</li>
-            <li>Phone: +973 1234 5678</li>
+            <li>Email: mahmood.alderazi@outlook.com</li>
+            <li>Phone: +973 3200 2449</li>
             <li>Location: Manama, Bahrain</li>
           </ul>
         </div>

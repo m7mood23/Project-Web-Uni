@@ -25,6 +25,12 @@
           <li class="nav-item"><a class="nav-link" href="making-of.html">Making Of</a></li>
           <li class="nav-item"><a class="nav-link" href="our-story.html">Our Story</a></li>
         </ul>
+        
+        <!-- WELCOME MESSAGE IN NAVBAR -->
+        <div class="welcome-nav" id="welcome-nav" style="display: none;">
+          Welcome <span id="user-name-nav">Guest</span>
+        </div>
+        
         <div class="cart-icon" onclick="openCart()">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
           <span id="cart-count">0</span>
@@ -66,8 +72,7 @@
       <div class="col-md-7 col-lg-6">
         <h1>Elevate Your Aura.<br>Define Your Hype.</h1>
         <p>Discover the latest in Bahraini street fashion. Bold cuts, premium materials, and creative designs crafted for those who stand out.</p>
-        <!-- WELCOME MESSAGE -->
-        <p id="welcome-message"></p>
+        <!-- REMOVED WELCOME MESSAGE FROM HERE -->
         <a href="#register" class="btn btn-accent btn-lg px-5 py-2 mt-3">Register Now</a>
       </div>
     </div>
@@ -95,26 +100,91 @@
     </div>
     <div class="container d-flex justify-content-center">
       <div class="col-md-8 col-lg-6">
-        <form class="form-panel p-5">
+        
+        <!-- FORM WITH BOOTSTRAP VALIDATION -->
+        <form class="form-panel p-5 needs-validation" novalidate>
+          
+          <!-- FIRST NAME -->
           <div class="mb-4">
             <label for="firstName" class="form-label">First Name</label>
-            <input id="firstName" type="text" class="form-control" placeholder="Enter your first name">
+            <input 
+              id="firstName" 
+              type="text" 
+              class="form-control" 
+              placeholder="Enter your first name"
+              required
+              minlength="3"
+              maxlength="20"
+              pattern="[a-zA-Z]+">
+            <div class="invalid-feedback">
+              First name must be at least 3 characters and contain only letters.
+            </div>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
           </div>
+
+          <!-- LAST NAME -->
           <div class="mb-4">
             <label for="lastName" class="form-label">Last Name</label>
-            <input id="lastName" type="text" class="form-control" placeholder="Enter your last name">
+            <input 
+              id="lastName" 
+              type="text" 
+              class="form-control" 
+              placeholder="Enter your last name"
+              required
+              minlength="3"
+              maxlength="20"
+              pattern="[a-zA-Z]+">
+            <div class="invalid-feedback">
+              Last name must be at least 3 characters and contain only letters.
+            </div>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
           </div>
+
+          <!-- MOBILE NUMBER -->
           <div class="mb-4">
             <label for="mobile" class="form-label">Mobile Number</label>
-            <input id="mobile" type="tel" class="form-control" inputmode="numeric" placeholder="8 digits only">
-            <div class="form-text">Format: exactly 8 digits.</div>
+            <input 
+              id="mobile" 
+              type="text" 
+              class="form-control" 
+              inputmode="numeric" 
+              placeholder="8 digits only"
+              required
+              pattern="[0-9]{8}"
+              maxlength="8">
+            <div class="form-text"></div>
+            <div class="invalid-feedback">
+              Mobile number must be exactly 8 digits.
+            </div>
+            <div class="valid-feedback">
+              Perfect!
+            </div>
           </div>
+
+          <!-- EMAIL -->
           <div class="mb-5">
             <label for="email" class="form-label">Email Address</label>
-            <input id="email" type="text" class="form-control" placeholder="your.email@example.com">
+            <input 
+              id="email" 
+              type="email" 
+              class="form-control" 
+              placeholder="your.email@example.com"
+              required>
+            <div class="invalid-feedback">
+              Please enter a valid email address.
+            </div>
+            <div class="valid-feedback">
+              Great!
+            </div>
           </div>
+
           <button type="submit" class="btn btn-accent w-100 py-2 fw-semibold">Submit</button>
         </form>
+
       </div>
     </div>
   </section>

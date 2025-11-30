@@ -25,6 +25,12 @@
           <li class="nav-item"><a class="nav-link" href="making-of.html">Making Of</a></li>
           <li class="nav-item"><a class="nav-link" href="our-story.html">Our Story</a></li>
         </ul>
+        
+        <!-- WELCOME MESSAGE IN NAVBAR -->
+        <div class="welcome-nav" id="welcome-nav" style="display: none;">
+          Welcome <span id="user-name-nav">Guest</span>
+        </div>
+        
         <div class="cart-icon" onclick="openCart()">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
           <span id="cart-count">0</span>
@@ -66,7 +72,6 @@
       <div class="col-lg-6 col-md-8 text-white">
         <h1 class="fw-bold">New Arrivals</h1>
         <p class="lead mb-4">Fresh drops, bold energy explore the latest styles that define the HypeAura movement.</p>
-        <p id="welcome-message"></p>
         <a href="#new" class="btn btn-accent px-4 py-2">Explore Now</a>
       </div>
     </div>
@@ -85,203 +90,207 @@
         </select>
       </div>
 
-      <!-- PRODUCTS GRID -->
-      <div class="row g-4" id="product-container-arrivals">
+      <!-- MAIN CONTAINER - ALL PRODUCTS INSIDE HERE -->
+      <div id="product-container-arrivals">
         
         <!-- ROW 1: 4 PRODUCTS -->
-        
-        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="39.99">
-          <div class="product-card">
-            <img src="images/new-arrival/123.webp" class="img-fluid" alt="Signature Logo Hoodie">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Signature Logo Hoodie</h6>
-              <p class="text-muted small mb-2">Limited Edition</p>
-              <p class="fw-bold mb-3">BHD 39.99</p>
-              <button class="btn btn-add-cart" data-name="Signature Logo Hoodie" data-price="39.99" data-image="images/new-arrival/signature-logo-hoodie.jpg">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="49.99">
-          <div class="product-card">
-            <img src="images/new-arrival/street snapback.jpg" class="img-fluid" alt="Graphic Overshirt">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Graphic Overshirt</h6>
-              <p class="text-muted small mb-2">Seasonal Exclusive</p>
-              <p class="fw-bold mb-3">BHD 49.99</p>
-              <button class="btn btn-add-cart" data-name="Graphic Overshirt" data-price="49.99" data-image="images/new-arrival/ghraphic-overshirt.jpg">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="74.99">
-          <div class="product-card">
-            <img src="images/new-arrival/ghraphic overshirt.jpg" class="img-fluid" alt="Retro Varsity Jacket">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Retro Varsity Jacket</h6>
-              <p class="text-muted small mb-2">Fall Capsule Drop</p>
-              <p class="fw-bold mb-3">BHD 74.99</p>
-              <button class="btn btn-add-cart" data-name="Retro Varsity Jacket" data-price="74.99" data-image="images/new-arrival/retro-vaesity.jpg">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="34.99">
-          <div class="product-card">
-            <img src="images/new-arrival/cropped denim.jpg" class="img-fluid" alt="Minimal Track Pants">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Minimal Track Pants</h6>
-              <p class="text-muted small mb-2">Slim fit, soft feel</p>
-              <p class="fw-bold mb-3">BHD 34.99</p>
-              <button class="btn btn-add-cart" data-name="Minimal Track Pants" data-price="34.99" data-image="images/new-arrival/minimal-track-pants.jpg">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- ROW 2: 4 PRODUCTS (2 real + 2 placeholder) -->
-
-        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="14.99">
-          <div class="product-card">
-            <img src="images/new-arrival/retro vaesity.jpg" class="img-fluid" alt="Street Snapback Cap">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Street Snapback Cap</h6>
-              <p class="text-muted small mb-2">Everyday street fit</p>
-              <p class="fw-bold mb-3">BHD 14.99</p>
-              <button class="btn btn-add-cart" data-name="Street Snapback Cap" data-price="14.99" data-image="images/new-arrival/street-snapback.jpg">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="55.99">
-          <div class="product-card">
-            <img src="images/new-arrival/signature logo hoodie.jpg" class="img-fluid" alt="Cropped Denim Jacket">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Cropped Denim Jacket</h6>
-              <p class="text-muted small mb-2">New in for Spring</p>
-              <p class="fw-bold mb-3">BHD 55.99</p>
-              <button class="btn btn-add-cart" data-name="Cropped Denim Jacket" data-price="55.99" data-image="images/new-arrival/cropped-denim.jpg">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- PLACEHOLDER PRODUCT 7 -->
-         <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="18.99">
-          <div class="product-card">
-            <img src="images/new-arrival/Stripes Polo Shirt.png" class="img-fluid" alt="Stripes Polo Shirt">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Stripes Polo Shirt</h6>
-              <p class="text-muted small mb-2">modern streetwear</p>
-              <p class="fw-bold mb-3">BHD 18.99</p>
-              <button class="btn btn-add-cart" data-name="Stripes Polo Shirt" data-price="18.99" data-image="images/new-arrival/Stripes Polo Shirt.png">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- PLACEHOLDER PRODUCT 8 -->
-     <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="23.99">
-          <div class="product-card">
-            <img src="images/new-arrival/Worker Jacket.png" class="img-fluid" alt="Worker Jacket">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Worker Jacket</h6>
-              <p class="text-muted small mb-2">inspired from workwear</p>
-              <p class="fw-bold mb-3">BHD 23.99</p>
-              <button class="btn btn-add-cart" data-name="Worker Jacket" data-price="23.99" data-image="images/new-arrival/Worker Jacket.png">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ROW 3: BACKGROUND IMAGES SECTION -->
-      <div class="row g-3 my-5">
-        <!-- LEFT: GREEN-MAN DISCOUNT IMAGE (33% WIDTH) -->
-        <div class="col-md-4">
-          <div style="height: 600px; overflow: hidden; border-radius: 8px;">
-            <img src="images/new-arrival/green-man.jpg" alt="Green Man Discount" class="img-fluid w-100 h-100" style="object-fit: cover;">
-          </div>
-        </div>
-
-        <!-- RIGHT COLUMN (3 IMAGES - 67% WIDTH) -->
-        <div class="col-md-8">
-          <!-- TOP: BANNER IMAGE -->
-          <div class="mb-3" style="height: 290px; overflow: hidden; border-radius: 8px;">
-            <img src="images/new-arrival/banner.jpg" alt="New Arrivals Banner" class="img-fluid w-100 h-100" style="object-fit: cover;">
-          </div>
+        <div class="row g-4">
           
-          <!-- BOTTOM: TWO IMAGES SIDE BY SIDE -->
-          <div class="row g-3">
-            <div class="col-6">
-              <div style="height: 290px; overflow: hidden; border-radius: 8px;">
-                <img src="images/new-arrival/women-view.jpg" alt="Women View" class="img-fluid w-100 h-100" style="object-fit: cover;">
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="39.99">
+            <div class="product-card">
+              <img src="images/new-arrival/123.webp" class="img-fluid" alt="Signature Logo Hoodie">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Signature Logo Hoodie</h6>
+                <p class="text-muted small mb-2">Limited Edition</p>
+                <p class="fw-bold mb-3">BHD 39.99</p>
+                <button class="btn btn-add-cart" data-name="Signature Logo Hoodie" data-price="39.99" data-image="images/new-arrival/123.webp">Add to Cart</button>
               </div>
             </div>
-            <div class="col-6">
-              <div style="height: 290px; overflow: hidden; border-radius: 8px;">
-                <img src="images/new-arrival/men-and-women.jpg" alt="Men and Women" class="img-fluid w-100 h-100" style="object-fit: cover;">
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="49.99">
+            <div class="product-card">
+              <img src="images/new-arrival/street snapback.jpg" class="img-fluid" alt="Graphic Overshirt">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Graphic Overshirt</h6>
+                <p class="text-muted small mb-2">Seasonal Exclusive</p>
+                <p class="fw-bold mb-3">BHD 49.99</p>
+                <button class="btn btn-add-cart" data-name="Graphic Overshirt" data-price="49.99" data-image="images/new-arrival/street snapback.jpg">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="74.99">
+            <div class="product-card">
+              <img src="images/new-arrival/ghraphic overshirt.jpg" class="img-fluid" alt="Retro Varsity Jacket">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Retro Varsity Jacket</h6>
+                <p class="text-muted small mb-2">Fall Capsule Drop</p>
+                <p class="fw-bold mb-3">BHD 74.99</p>
+                <button class="btn btn-add-cart" data-name="Retro Varsity Jacket" data-price="74.99" data-image="images/new-arrival/ghraphic overshirt.jpg">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="34.99">
+            <div class="product-card">
+              <img src="images/new-arrival/cropped denim.jpg" class="img-fluid" alt="Minimal Track Pants">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Minimal Track Pants</h6>
+                <p class="text-muted small mb-2">Slim fit, soft feel</p>
+                <p class="fw-bold mb-3">BHD 34.99</p>
+                <button class="btn btn-add-cart" data-name="Minimal Track Pants" data-price="34.99" data-image="images/new-arrival/cropped denim.jpg">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ROW 2: 4 PRODUCTS -->
+        <div class="row g-4 mt-1">
+
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="14.99">
+            <div class="product-card">
+              <img src="images/new-arrival/retro vaesity.jpg" class="img-fluid" alt="Street Snapback Cap">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Street Snapback Cap</h6>
+                <p class="text-muted small mb-2">Everyday street fit</p>
+                <p class="fw-bold mb-3">BHD 14.99</p>
+                <button class="btn btn-add-cart" data-name="Street Snapback Cap" data-price="14.99" data-image="images/new-arrival/retro vaesity.jpg">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="55.99">
+            <div class="product-card">
+              <img src="images/new-arrival/signature logo hoodie.jpg" class="img-fluid" alt="Cropped Denim Jacket">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Cropped Denim Jacket</h6>
+                <p class="text-muted small mb-2">New in for Spring</p>
+                <p class="fw-bold mb-3">BHD 55.99</p>
+                <button class="btn btn-add-cart" data-name="Cropped Denim Jacket" data-price="55.99" data-image="images/new-arrival/signature logo hoodie.jpg">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="18.99">
+            <div class="product-card">
+              <img src="images/new-arrival/Stripes Polo Shirt.png" class="img-fluid" alt="Stripes Polo Shirt">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Stripes Polo Shirt</h6>
+                <p class="text-muted small mb-2">modern streetwear</p>
+                <p class="fw-bold mb-3">BHD 18.99</p>
+                <button class="btn btn-add-cart" data-name="Stripes Polo Shirt" data-price="18.99" data-image="images/new-arrival/Stripes Polo Shirt.png">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="23.99">
+            <div class="product-card">
+              <img src="images/new-arrival/Worker Jacket.png" class="img-fluid" alt="Worker Jacket">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Worker Jacket</h6>
+                <p class="text-muted small mb-2">inspired from workwear</p>
+                <p class="fw-bold mb-3">BHD 23.99</p>
+                <button class="btn btn-add-cart" data-name="Worker Jacket" data-price="23.99" data-image="images/new-arrival/Worker Jacket.png">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ROW 3: BACKGROUND IMAGES SECTION -->
+        <div class="row g-3 my-5">
+          <!-- LEFT: GREEN-MAN DISCOUNT IMAGE (33% WIDTH) -->
+          <div class="col-md-4">
+            <div style="height: 600px; overflow: hidden; border-radius: 8px;">
+              <img src="images/new-arrival/green-man.jpg" alt="Green Man Discount" class="img-fluid w-100 h-100" style="object-fit: cover;">
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN (3 IMAGES - 67% WIDTH) -->
+          <div class="col-md-8">
+            <!-- TOP: BANNER IMAGE -->
+            <div class="mb-3" style="height: 290px; overflow: hidden; border-radius: 8px;">
+              <img src="images/new-arrival/banner.jpg" alt="New Arrivals Banner" class="img-fluid w-100 h-100" style="object-fit: cover;">
+            </div>
+            
+            <!-- BOTTOM: TWO IMAGES SIDE BY SIDE -->
+            <div class="row g-3">
+              <div class="col-6">
+                <div style="height: 290px; overflow: hidden; border-radius: 8px;">
+                  <img src="images/new-arrival/women-view.jpg" alt="Women View" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                </div>
+              </div>
+              <div class="col-6">
+                <div style="height: 290px; overflow: hidden; border-radius: 8px;">
+                  <img src="images/new-arrival/men-and-women.jpg" alt="Men and Women" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- ROW 4: MORE PRODUCTS -->
+        <div class="row g-4">
+
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="50.00">
+            <div class="product-card">
+              <img src="images/new-arrival/Adjustable Palazzo Pants.png" class="img-fluid" alt="Adjustable Palazzo Pants">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Adjustable Palazzo Pants</h6>
+                <p class="text-muted small mb-2">design that feel modern</p>
+                <p class="fw-bold mb-3">BHD 50.00</p>
+                <button class="btn btn-add-cart" data-name="Adjustable Palazzo Pants" data-price="50.00" data-image="images/new-arrival/Adjustable Palazzo Pants.png">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="39.99">
+            <div class="product-card">
+              <img src="images/new-arrival/Plaid Hooded Jacket.png" class="img-fluid" alt="Plaid Hooded Jacket">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Plaid Hooded Jacket</h6>
+                <p class="text-muted small mb-2">Gramicci jacket</p>
+                <p class="fw-bold mb-3">BHD 39.99</p>
+                <button class="btn btn-add-cart" data-name="Plaid Hooded Jacket" data-price="39.99" data-image="images/new-arrival/Plaid Hooded Jacket.png">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="48.99">
+            <div class="product-card">
+              <img src="images/new-arrival/Aberford Wax Jacket.png" class="img-fluid" alt="Aberford Wax Jacket">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Aberford Wax Jacket</h6>
+                <p class="text-muted small mb-2">British heritage outerwear</p>
+                <p class="fw-bold mb-3">BHD 48.99</p>
+                <button class="btn btn-add-cart" data-name="Aberford Wax Jacket" data-price="48.99" data-image="images/new-arrival/Aberford Wax Jacket.png">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="35.99">
+            <div class="product-card">
+              <img src="images/new-arrival/Big Boy Jeans.png" class="img-fluid" alt="Big Boy Jeans">
+              <div class="p-3">
+                <h6 class="fw-semibold mb-1">Big Boy Jeans</h6>
+                <p class="text-muted small mb-2">semi baggy fit jeans</p>
+                <p class="fw-bold mb-3">BHD 35.99</p>
+                <button class="btn btn-add-cart" data-name="Big Boy Jeans" data-price="35.99" data-image="images/new-arrival/Big Boy Jeans.png">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
-
-      <!-- ROW 4: MORE PRODUCTS -->
-      <div class="row g-4">
-
-        <!-- PLACEHOLDER PRODUCT 9 -->
-        <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="50">
-          <div class="product-card">
-            <img src="images/new-arrival/Adjustable Palazzo Pants.png" class="img-fluid" alt="Adjustable Palazzo Pants">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Adjustable Palazzo Pants</h6>
-              <p class="text-muted small mb-2">design that feel modern</p>
-              <p class="fw-bold mb-3">BHD 50</p>
-              <button class="btn btn-add-cart" data-name="Adjustable Palazzo Pants" data-price="50" data-image="images/new-arrival/Adjustable Palazzo Pants.png">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-        <!-- PLACEHOLDER PRODUCT 10 -->
-       <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="39.99">
-          <div class="product-card">
-            <img src="images/new-arrival/Plaid Hooded Jacket.png" class="img-fluid" alt="Plaid Hooded Jacket">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Plaid Hooded Jacket</h6>
-              <p class="text-muted small mb-2">Gramicci jacket</p>
-              <p class="fw-bold mb-3">BHD 39.99</p>
-              <button class="btn btn-add-cart" data-name="Plaid Hooded Jacket" data-price="39.99" data-image="images/new-arrival/Plaid Hooded Jacket.png">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-        <!-- PLACEHOLDER PRODUCT 11 -->
-       <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="48.99">
-          <div class="product-card">
-            <img src="images/new-arrival/Aberford Wax Jacket.png" class="img-fluid" alt="Aberford Wax Jacket">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Aberford Wax Jacket</h6>
-              <p class="text-muted small mb-2">British heritage outerwear</p>
-              <p class="fw-bold mb-3">BHD 48.99</p>
-              <button class="btn btn-add-cart" data-name="Aberford Wax Jacket" data-price="48.99" data-image="images/new-arrival/Aberford Wax Jacket.png">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- PLACEHOLDER PRODUCT 12 -->
-       <div class="col-sm-6 col-md-4 col-lg-3 product-item" data-price="35.99">
-          <div class="product-card">
-            <img src="images/new-arrival/Big Boy Jeans.png" class="img-fluid" alt="Big Boy Jeans">
-            <div class="p-3">
-              <h6 class="fw-semibold mb-1">Big Boy Jeans</h6>
-              <p class="text-muted small mb-2">semi baggy fit jeans</p>
-              <p class="fw-bold mb-3">BHD 35.99</p>
-              <button class="btn btn-add-cart" data-name="Big Boy Jeans" data-price="35.99" data-image="images/new-arrival/Big Boy Jeans.png">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <!-- END OF PRODUCT CONTAINER -->
 
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- FOOTER - FIXED! -->
   <footer class="site-footer">
     <div class="container">
       <div class="row g-4">
@@ -289,11 +298,11 @@
           <h5 class="fw-bold mb-3">HYPEAURA</h5>
           <p class="muted mb-0">Bahrain's streetwear label for the modern generation — crafted with style, passion, and confidence.</p>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 text-md-end">
           <h6 class="fw-semibold mb-2">Contact Us</h6>
           <ul class="list-unstyled small mb-0">
-            <li>Email: info@hypeaura.com</li>
-            <li>Phone: +973 1234 5678</li>
+            <li>Email: mahmood.alderazi@outlook.com</li>
+            <li>Phone: +973 3200 2449</li>
             <li>Location: Manama, Bahrain</li>
           </ul>
         </div>

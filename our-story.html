@@ -25,39 +25,14 @@
           <li class="nav-item"><a class="nav-link" href="making-of.html">Making Of</a></li>
           <li class="nav-item"><a class="nav-link active" href="our-story.html">Our Story</a></li>
         </ul>
-        <div class="cart-icon" onclick="openCart()">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-          <span id="cart-count">0</span>
+        
+        <!-- WELCOME MESSAGE IN NAVBAR -->
+        <div class="welcome-nav" id="welcome-nav" style="display: none;">
+          Welcome <span id="user-name-nav">Guest</span>
         </div>
       </nav>
     </div>
   </header>
-
-  <!-- CART OVERLAY -->
-  <div id="cart-overlay" onclick="closeCart()"></div>
-
-  <!-- CART SIDEBAR -->
-  <div id="cart-sidebar">
-    <div class="cart-header">
-      <h5>Your Cart</h5>
-      <button class="cart-close" onclick="closeCart()">×</button>
-    </div>
-    <div class="cart-body">
-      <div id="cart-empty">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        <h6>Your shopping cart is empty.</h6>
-        <p>Why don't you fill it in with some of our suggestions?</p>
-      </div>
-      <div id="cart-items"></div>
-    </div>
-    <div class="cart-footer">
-      <div class="cart-total-row">
-        <span>Total:</span>
-        <strong>BHD <span id="cart-total">0.00</span></strong>
-      </div>
-      <button class="btn btn-accent">Checkout</button>
-    </div>
-  </div>
 
   <!-- HERO SECTION -->
   <section class="hero-section" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); min-height: 350px;">
@@ -65,115 +40,71 @@
     <div class="container text-white d-flex align-items-center justify-content-center text-center" style="min-height: 350px;">
       <div>
         <h1 class="fw-bold display-3 mb-3">Our Story</h1>
-        <p class="lead">Meet the team behind HypeAura.</p>
+        <p class="lead">The journey of building HypeAura together.</p>
       </div>
     </div>
   </section>
 
-  <!-- TEAM MEMBER 1 - MAHMOOD -->
+  <!-- OUR STORY CONTENT -->
   <section class="py-5 bg-white">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <h2 class="fw-bold mb-4">Mahmood</h2>
-          <p class="mb-3">
-            [WRITE YOUR 250 WORDS HERE - Talk about yourself, your role in the project, why you're interested in web development or fashion, what you learned, etc.]
+        <div class="col-lg-10 mx-auto">
+          
+          <h2 class="fw-bold mb-4 text-center" style="color: #e63946;">Our Journey</h2>
+          
+          <p class="mb-4" style="font-size: 1.05rem; line-height: 1.8;">
+            Working on this website as a team of four Mahmood, Thamer, Ali, and Yousef was a complete experience that taught us a lot about design, coding, time management, and how to work together effectively. Even though each one of us had different strengths, we were able to use them in a way that balanced the workload and helped the project come together smoothly. From the beginning, we agreed that everyone would choose the parts they were naturally good at, and that made the whole process feel more organized and enjoyable.
           </p>
-          <p class="mb-3">
-            [Continue your story here...]
+
+          <h3 class="fw-bold mt-5 mb-3" style="color: #0a0a0a; border-left: 4px solid #e63946; padding-left: 15px;">Team Roles</h3>
+
+          <p class="mb-4" style="font-size: 1.05rem; line-height: 1.8;">
+            Thamer role focused heavily on the graphical and content-related side of the website. He was responsible for searching, selecting, and preparing the images that appear throughout our pages. He took this task seriously and treated it as if the website were a real online store. He searched for the highest-quality pictures from Pinterest and other websites, always choosing the ones that best represented the clothing items we wanted to include. After finding the right images, he would extract the links and send everything to Ali for implementation. What motivated him was the belief that visuals play a big role in attracting customers. Thamer chose this task because he genuinely enjoys graphical design and sees it as an essential part of any modern website.
           </p>
-          <p>
-            [Finish your 250 words here...]
+
+          <p class="mb-4" style="font-size: 1.05rem; line-height: 1.8;">
+            Mahmood played a crucial role during both the early design phase and the technical implementation. He created the Figma mock-ups, which acted as the blueprint for everything we built later. He designed the structure of all six pages and showed us clearly where each section, image, and button should go. Throughout the project, Mahmood asked many questions to Dr. Abdelhameed Fawzy to make sure everything was correct and met the project requirements exactly. On top of the design work, Mahmood contributed significantly to the JavaScript functionality. He worked on the form validation code, making sure the "Register Your Interest" form checked that First and Last Names had at least three characters, the mobile number was exactly eight digits, and the email was properly formatted. He also implemented the functionality to store user data using both localStorage and sessionStorage to permanently save the user's information and sessionStorage to control when the welcome message appears. This allowed the user's first name to display across all pages as a personalized welcome message in the navigation bar. After Ali built the initial website structure, Mahmood took on the responsibility of refining and polishing the design to make it smooth, clean, and user-friendly. This required a lot of patience and attention to detail. He carefully adjusted button sizes, improved spacing, enhanced text readability by adding shadows to hero sections, and ensured consistent styling across all pages. His work transformed the website from functional to visually appealing and easy to use. Additionally, Mahmood helped with the Making Of page by explaining the design reasons behind our choices. Without Mahmood's planning, questioning, refinement work, and technical contributions, the project would have been much harder.
           </p>
+
+          <p class="mb-4" style="font-size: 1.05rem; line-height: 1.8;">
+            Ali worked on building the initial technical foundation of the website. He took the HTML structure and visual plans and turned them into a working website. Ali wrote the base CSS code, implemented Bootstrap throughout the site, and created the fundamental layout and page structure. His ability to quickly build out all six pages gave us a solid foundation to work with. Ali's technical skills were essential in getting the website up and running. He was patient and collaborative when Mahmood made refinements to improve the user experience. Ali's foundational work was critical to the project's success.
+          </p>
+
+          <p class="mb-4" style="font-size: 1.05rem; line-height: 1.8;">
+            Yousef focused on additional JavaScript functionality and testing of the website. He added helpful error messages and a confirmation message when the form was submitted successfully. Yousef tested the website to make sure all buttons, links, and Bootstrap components worked properly across different pages. His contributions helped ensure the website was interactive and user-friendly instead of just static pages.
+          </p>
+
+          <h3 class="fw-bold mt-5 mb-3" style="color: #0a0a0a; border-left: 4px solid #e63946; padding-left: 15px;">Challenges We Faced</h3>
+
+          <p class="mb-4" style="font-size: 1.05rem; line-height: 1.8;">
+            Throughout the entire project, we communicated constantly and helped each other whenever something became confusing or challenging. There were moments when the CSS conflicted with the HTML, or the JavaScript needed adjustments, or a layout didn't match the mock-ups. One of the biggest challenges we faced was making sure the form validation worked correctly and that the user's name appeared on all pages after registration using both localStorage and sessionStorage. Another challenge was refining the visual design to make the text readable on hero images without using visible boxes, which required experimenting with text shadows and overlay opacity. We also had to ensure our mock-ups were proper wireframes from Figma and not screenshots of the completed website, as that would result in zero marks. Every time we encountered an issue, we discussed it as a group and found a solution together. This teamwork made the final result stronger than if each of us had worked alone.
+          </p>
+
+          <h3 class="fw-bold mt-5 mb-3" style="color: #0a0a0a; border-left: 4px solid #e63946; padding-left: 15px;">What We Learned</h3>
+
+          <p class="mb-4" style="font-size: 1.05rem; line-height: 1.8;">
+            Overall, this project taught us how to plan, design, build, and finish a complete website from scratch while balancing our different roles. We learned the importance of asking questions early to avoid mistakes later. We discovered how Bootstrap makes styling faster and more consistent across pages. We understood how JavaScript brings interactivity to a website and how localStorage and sessionStorage can work together to save user information and control display logic. We also learned the value of patience and attention to detail when refining a design to make it truly user-friendly. We learned how critical it is to follow project requirements exactly, especially details like having exactly six pages, proper form validation, and including proper wireframes instead of screenshots. Most importantly, we learned that communication and teamwork are essential when working on a group project. Each of us contributed something unique, and all our pieces came together to create a website we are proud of and confident will meet all the grading criteria.
+          </p>
+
+          <!-- HORIZONTAL LINE SEPARATOR -->
+          <hr style="border: none; border-top: 3px solid #e63946; margin: 4rem 0; width: 60%; margin-left: auto; margin-right: auto;">
+
+          <!-- THANK YOU LETTER -->
+          <h2 class="fw-bold mb-4 text-center" style="color: #0a0a0a; font-size: 2.5rem;">Thank You for Everything</h2>
+          
+          <p class="mb-4" style="font-size: 1.15rem; line-height: 2; text-align: justify;">
+            We would like to express our sincere gratitude to <strong>Dr. Abdelhameed Fawzy</strong> for his guidance, patience, and dedication throughout this course. Without your clear explanations, helpful feedback, and constant encouragement, we would not have been able to create a project we are truly proud of. You taught us not just how to code, but how to think like developers—how to plan, problem-solve, and work together as a team. Your passion for teaching and your commitment to our success inspired us to push ourselves beyond what we thought we were capable of. Thank you for believing in us and for giving us the knowledge and confidence to build something meaningful. This project is a testament to everything you have taught us. We are incredibly grateful to have had you as our lecturer.
+          </p>
+          
+          <p class="text-end mt-5" style="font-size: 1.3rem; font-weight: 700; color: #0a0a0a;">
+            — Mahmood, Thamer, Ali & Yousef
+          </p>
+
         </div>
       </div>
     </div>
   </section>
-
-  <!-- TEAM MEMBER 2 - ALI -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <h2 class="fw-bold mb-4">Ali</h2>
-          <p class="mb-3">
-            [ALI WRITES HIS 250 WORDS HERE - Talk about yourself, your role in the project, what you contributed, what you learned, etc.]
-          </p>
-          <p class="mb-3">
-            [Continue Ali's story here...]
-          </p>
-          <p>
-            [Finish Ali's 250 words here...]
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TEAM MEMBER 3 -->
-  <section class="py-5 bg-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <h2 class="fw-bold mb-4">Team Member 3</h2>
-          <p class="mb-3">
-            [TEAM MEMBER 3 WRITES THEIR 250 WORDS HERE - Talk about yourself, your role in the project, what you contributed, what you learned, etc.]
-          </p>
-          <p class="mb-3">
-            [Continue their story here...]
-          </p>
-          <p>
-            [Finish their 250 words here...]
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TEAM MEMBER 4 -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <h2 class="fw-bold mb-4">Team Member 4</h2>
-          <p class="mb-3">
-            [TEAM MEMBER 4 WRITES THEIR 250 WORDS HERE - Talk about yourself, your role in the project, what you contributed, what you learned, etc.]
-          </p>
-          <p class="mb-3">
-            [Continue their story here...]
-          </p>
-          <p>
-            [Finish their 250 words here...]
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-md-6">
-          <h5 class="fw-bold mb-3">HYPEAURA</h5>
-          <p class="muted mb-0">Bahrain's streetwear label for the modern generation — crafted with style, passion, and confidence.</p>
-        </div>
-        <div class="col-md-6">
-          <h6 class="fw-semibold mb-2">Contact Us</h6>
-          <ul class="list-unstyled small mb-0">
-            <li>Email: info@hypeaura.com</li>
-            <li>Phone: +973 1234 5678</li>
-            <li>Location: Manama, Bahrain</li>
-          </ul>
-        </div>
-      </div>
-      <hr class="border-secondary my-4">
-      <div class="d-flex justify-content-between align-items-center small muted">
-        <span>© 2025 HypeAura. All rights reserved.</span>
-        <span>Trusted by 1,000+ customers in Bahrain</span>
-      </div>
-    </div>
-  </footer>
 
   <script src="js/script.js"></script>
 </body>

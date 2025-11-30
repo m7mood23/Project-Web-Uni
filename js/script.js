@@ -1,22 +1,68 @@
-/* ==============================
-   HYPEAURA SHOPPING CART + FORM VALIDATION
-   Using localStorage AND sessionStorage
-   ============================== */
 
-// ========== LOCALSTORAGE - Get cart data when page loads ==========
+// Initialize cart from localStorage when page loads
 let cart = JSON.parse(localStorage.getItem("hypeaura-cart")) || [];
 
-// Run when page loads
+// Run all setup functions when the page finishes loading
 document.addEventListener("DOMContentLoaded", function() {
+  setupFormValidation();
   updateCartCount();
   renderCartItems();
   setupAddToCartButtons();
-  setupFormValidation();
+  setupCheckoutButton();
   checkPageReload();
-  displayWelcomeMessage();
+  displayWelcomeMessageInNav();
 });
 
-// ========== CHECK IF PAGE WAS RELOADED ==========
+// FORM VALIDATION SECTION
+// This function validates the registration form on the home page
+function setupFormValidation() {
+  const form = document.querySelector(".needs-validation");
+  
+  // Exit if no form exists on current page
+  if (!form) return;
+  
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    
+    // Check if all form fields are valid
+    if (form.checkValidity()) {
+      // Collect user data from form inputs
+      const userData = {
+        firstName: document.getElementById("firstName").value.trim(),
+        lastName: document.getElementById("lastName").value.trim(),
+        mobile: document.getElementById("mobile").value.trim(),
+        email: document.getElementById("email").value.trim()
+      };
+      
+      // Save user data to localStorage for permanent storage
+      localStorage.setItem("hypeaura-user", JSON.stringify(userData));
+      
+      // Set session flag to show welcome message
+      sessionStorage.setItem("hypeaura-show-welcome", "true");
+      
+      // Display success message to user
+      alert("Registration successful! Welcome " + userData.firstName + " " + userData.lastName + "!");
+      
+      // Reset form and remove validation styling
+      form.reset();
+      form.classList.remove("was-validated");
+      
+      // Update navbar with welcome message
+      displayWelcomeMessageInNav();
+      
+      // Scroll to top of page
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+    } else {
+      // Show validation errors if form is invalid
+      form.classList.add("was-validated");
+    }
+  }, false);
+}
+
+// Check if page was reloaded by user
+// This clears the welcome message flag on page reload
 function checkPageReload() {
   const navEntries = performance.getEntriesByType("navigation");
   
@@ -25,12 +71,37 @@ function checkPageReload() {
   }
 }
 
-// ========== ADD TO CART FUNCTIONALITY ==========
+// WELCOME MESSAGE SECTION
+// Display welcome message in navbar using stored user data
+function displayWelcomeMessageInNav() {
+  const welcomeNav = document.getElementById("welcome-nav");
+  const userNameNav = document.getElementById("user-name-nav");
+  
+  // Exit if elements don't exist on current page
+  if (!welcomeNav || !userNameNav) return;
+  
+  // Check both sessionStorage flag and localStorage user data
+  const showWelcome = sessionStorage.getItem("hypeaura-show-welcome");
+  const userData = JSON.parse(localStorage.getItem("hypeaura-user"));
+  
+  if (showWelcome === "true" && userData && userData.firstName) {
+    // Display user's full name in navbar
+    userNameNav.textContent = userData.firstName + " " + userData.lastName;
+    welcomeNav.style.display = "block";
+  } else {
+    // Hide welcome message
+    welcomeNav.style.display = "none";
+  }
+}
+
+// SHOPPING CART SECTION
+// Setup click listeners for all Add to Cart buttons
 function setupAddToCartButtons() {
   const addButtons = document.querySelectorAll(".btn-add-cart");
   
   addButtons.forEach(function(button) {
     button.addEventListener("click", function() {
+      // Get product details from button attributes
       const name = this.getAttribute("data-name");
       const price = parseFloat(this.getAttribute("data-price"));
       const image = this.getAttribute("data-image");
@@ -39,12 +110,15 @@ function setupAddToCartButtons() {
   });
 }
 
+// Add product to cart or increase quantity if already exists
 function addToCart(name, price, image) {
   const existingItem = cart.find(item => item.name === name);
   
   if (existingItem) {
+    // Increase quantity if item already in cart
     existingItem.quantity += 1;
   } else {
+    // Add new item to cart
     cart.push({
       name: name,
       price: price,
@@ -53,35 +127,41 @@ function addToCart(name, price, image) {
     });
   }
   
+  // Save updated cart to localStorage
   localStorage.setItem("hypeaura-cart", JSON.stringify(cart));
   
+  // Update cart display
   updateCartCount();
   renderCartItems();
   openCart();
 }
 
-// ========== REMOVE FROM CART ==========
+// Remove item from cart by index
 function removeFromCart(index) {
   cart.splice(index, 1);
   
+  // Update localStorage with new cart data
   localStorage.setItem("hypeaura-cart", JSON.stringify(cart));
   
+  // Refresh cart display
   updateCartCount();
   renderCartItems();
 }
 
-// ========== UPDATE CART COUNT BADGE ==========
+// Update cart count badge in navbar
 function updateCartCount() {
   const cartCount = document.getElementById("cart-count");
+  
+  if (!cartCount) return;
+  
+  // Calculate total number of items in cart
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   
-  if (cartCount) {
-    cartCount.textContent = totalItems;
-    cartCount.style.display = totalItems > 0 ? "flex" : "none";
-  }
+  cartCount.textContent = totalItems;
+  cartCount.style.display = totalItems > 0 ? "flex" : "none";
 }
 
-// ========== RENDER CART ITEMS IN SIDEBAR ==========
+// Render all cart items in the cart sidebar
 function renderCartItems() {
   const cartItemsContainer = document.getElementById("cart-items");
   const cartTotal = document.getElementById("cart-total");
@@ -89,8 +169,10 @@ function renderCartItems() {
   
   if (!cartItemsContainer) return;
   
+  // Clear existing cart items
   cartItemsContainer.innerHTML = "";
   
+  // Show empty cart message if no items
   if (cart.length === 0) {
     if (cartEmpty) cartEmpty.style.display = "block";
     if (cartTotal) cartTotal.textContent = "0.00";
@@ -99,6 +181,7 @@ function renderCartItems() {
   
   if (cartEmpty) cartEmpty.style.display = "none";
   
+  // Create HTML for each cart item
   cart.forEach(function(item, index) {
     const itemHTML = `
       <div class="cart-item">
@@ -113,226 +196,116 @@ function renderCartItems() {
     cartItemsContainer.innerHTML += itemHTML;
   });
   
+  // Calculate and display total price
   const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   if (cartTotal) cartTotal.textContent = total.toFixed(2);
 }
 
-// ========== OPEN/CLOSE CART SIDEBAR ==========
+// Open cart sidebar and overlay
 function openCart() {
   const cartSidebar = document.getElementById("cart-sidebar");
   const cartOverlay = document.getElementById("cart-overlay");
+  
   if (cartSidebar) cartSidebar.classList.add("open");
   if (cartOverlay) cartOverlay.classList.add("open");
 }
 
+// Close cart sidebar and overlay
 function closeCart() {
   const cartSidebar = document.getElementById("cart-sidebar");
   const cartOverlay = document.getElementById("cart-overlay");
+  
   if (cartSidebar) cartSidebar.classList.remove("open");
   if (cartOverlay) cartOverlay.classList.remove("open");
 }
 
-// ==============================
-// FORM VALIDATION
-// ==============================
-
-function setupFormValidation() {
-  const form = document.querySelector(".form-panel");
-  if (!form) return;
+// CHECKOUT SECTION
+// Setup click listener for checkout button
+function setupCheckoutButton() {
+  const checkoutButtons = document.querySelectorAll(".btn-accent");
   
-  const firstName = document.getElementById("firstName");
-  const lastName = document.getElementById("lastName");
-  const mobile = document.getElementById("mobile");
-  const email = document.getElementById("email");
-  
-  if (firstName) firstName.addEventListener("input", function() { validateName(this, "First name"); });
-  if (lastName) lastName.addEventListener("input", function() { validateName(this, "Last name"); });
-  if (mobile) mobile.addEventListener("input", function() { validateMobile(this); });
-  if (email) email.addEventListener("input", function() { validateEmail(this); });
-  
-  form.addEventListener("submit", function(e) {
-    e.preventDefault();
-    
-    let isValid = true;
-    
-    if (!validateName(firstName, "First name")) isValid = false;
-    if (!validateName(lastName, "Last name")) isValid = false;
-    if (!validateMobile(mobile)) isValid = false;
-    if (!validateEmail(email)) isValid = false;
-    
-    if (isValid) {
-      const userData = {
-        firstName: firstName.value.trim(),
-        lastName: lastName.value.trim(),
-        mobile: mobile.value.trim(),
-        email: email.value.trim()
-      };
-      localStorage.setItem("hypeaura-user", JSON.stringify(userData));
-      
-      sessionStorage.setItem("hypeaura-show-welcome", "true");
-      
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      
-      form.reset();
-      clearAllErrors();
-      
-      displayWelcomeMessage();
+  checkoutButtons.forEach(function(button) {
+    // Only add listener to buttons with Checkout text
+    if (button.textContent.trim() === "Checkout") {
+      button.addEventListener("click", function() {
+        handleCheckout();
+      });
     }
   });
 }
 
-// ========== VALIDATE NAME (First & Last) ==========
-function validateName(input, fieldName) {
-  const value = input.value.trim();
-  let errorMsg = "";
-  
-  if (value === "") {
-    errorMsg = fieldName + " is required.";
-  }
-  else if (value.length < 3) {
-    errorMsg = fieldName + " must be at least 3 characters.";
-  }
-  else if (value.length > 20) {
-    errorMsg = fieldName + " must be less than 20 characters.";
-  }
-  else if (!/^[a-zA-Z]/.test(value)) {
-    errorMsg = fieldName + " must start with a letter.";
-  }
-  else if (!/^[a-zA-Z]+$/.test(value)) {
-    errorMsg = fieldName + " can only contain letters (no numbers or symbols).";
+// Handle checkout process
+function handleCheckout() {
+  // Check if cart has items before checkout
+  if (cart.length === 0) {
+    alert("Your cart is empty! Please add items before checkout.");
+    return;
   }
   
-  showError(input, errorMsg);
-  return errorMsg === "";
+  // Show purchase confirmation message
+  alert("Thank you for your purchase!");
+  
+  // Clear cart after successful purchase
+  cart = [];
+  localStorage.setItem("hypeaura-cart", JSON.stringify(cart));
+  
+  // Update cart display to reflect empty cart
+  updateCartCount();
+  renderCartItems();
+  
+  // Close cart sidebar
+  closeCart();
 }
 
-// ========== VALIDATE MOBILE (Exactly 8 digits) ==========
-function validateMobile(input) {
-  const value = input.value.trim();
-  let errorMsg = "";
-  
-  if (value === "") {
-    errorMsg = "Mobile number is required.";
-  }
-  else if (!/^\d+$/.test(value)) {
-    errorMsg = "Mobile number can only contain digits.";
-  }
-  else if (value.length !== 8) {
-    errorMsg = "Mobile number must be exactly 8 digits.";
-  }
-  
-  showError(input, errorMsg);
-  return errorMsg === "";
-}
-
-// ========== VALIDATE EMAIL ==========
-function validateEmail(input) {
-  const value = input.value.trim();
-  let errorMsg = "";
-  
-  if (value === "") {
-    errorMsg = "Email is required.";
-  }
-  else if (/\s/.test(value)) {
-    errorMsg = "Email cannot contain spaces.";
-  }
-  else if (!value.includes("@")) {
-    errorMsg = "Email must contain @ symbol.";
-  }
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-    errorMsg = "Please enter a valid email address.";
-  }
-  
-  showError(input, errorMsg);
-  return errorMsg === "";
-}
-
-// ========== SHOW/HIDE ERROR MESSAGES ==========
-function showError(input, message) {
-  const existingError = input.parentElement.querySelector(".error-message");
-  if (existingError) existingError.remove();
-  
-  if (message) {
-    input.classList.add("is-invalid");
-    input.classList.remove("is-valid");
-    
-    const errorDiv = document.createElement("div");
-    errorDiv.className = "error-message text-danger small mt-1";
-    errorDiv.textContent = message;
-    input.parentElement.appendChild(errorDiv);
-  } else {
-    input.classList.remove("is-invalid");
-    input.classList.add("is-valid");
-  }
-}
-
-function clearAllErrors() {
-  const errors = document.querySelectorAll(".error-message");
-  errors.forEach(error => error.remove());
-  
-  const inputs = document.querySelectorAll(".form-control");
-  inputs.forEach(input => {
-    input.classList.remove("is-invalid");
-    input.classList.remove("is-valid");
-  });
-}
-
-// ==============================
-// WELCOME MESSAGE DISPLAY
-// ==============================
-
-function displayWelcomeMessage() {
-  const showWelcome = sessionStorage.getItem("hypeaura-show-welcome");
-  
-  const userData = JSON.parse(localStorage.getItem("hypeaura-user"));
-  
-  const welcomeElement = document.getElementById("welcome-message");
-  
-  if (welcomeElement && showWelcome === "true" && userData && userData.firstName) {
-    welcomeElement.textContent = "Hello, " + userData.firstName + " " + userData.lastName + "!";
-    welcomeElement.style.display = "block";
-  } else if (welcomeElement) {
-    welcomeElement.style.display = "none";
-  }
-}
-
-// ==============================
-// PRODUCT SORTING FUNCTION
-// ==============================
-
+// PRODUCT SORTING SECTION
+// Sort products by price on Men, Women, and New Arrivals pages
 function sortProducts(page) {
-  // Get the dropdown value
-  var sortValue = document.getElementById("sort-dropdown-" + page).value;
+  const sortValue = document.getElementById("sort-dropdown-" + page).value;
+  const container = document.getElementById("product-container-" + page);
   
-  // Get the product container
-  var container = document.getElementById("product-container-" + page);
+  if (!container) return;
   
-  // Get all product items
-  var products = Array.from(container.getElementsByClassName("product-item"));
+  // Get all product items from container
+  const products = Array.from(container.querySelectorAll(".product-item"));
   
-  // Sort based on selected option
+  // Don't sort if Featured is selected
+  if (sortValue === "featured") {
+    return;
+  }
+  
+  // Sort products by price low to high
   if (sortValue === "price-low") {
-    // Sort: Price Low to High
     products.sort(function(a, b) {
-      var priceA = parseFloat(a.getAttribute("data-price"));
-      var priceB = parseFloat(b.getAttribute("data-price"));
+      const priceA = parseFloat(a.getAttribute("data-price")) || 0;
+      const priceB = parseFloat(b.getAttribute("data-price")) || 0;
       return priceA - priceB;
     });
-  } else if (sortValue === "price-high") {
-    // Sort: Price High to Low
+  } 
+  // Sort products by price high to low
+  else if (sortValue === "price-high") {
     products.sort(function(a, b) {
-      var priceA = parseFloat(a.getAttribute("data-price"));
-      var priceB = parseFloat(b.getAttribute("data-price"));
+      const priceA = parseFloat(a.getAttribute("data-price")) || 0;
+      const priceB = parseFloat(b.getAttribute("data-price")) || 0;
       return priceB - priceA;
     });
   }
-  // If "featured", do nothing (keep original order)
   
-  // Clear container
-  container.innerHTML = "";
+  // Get all row containers
+  const rows = container.querySelectorAll(".row");
   
-  // Re-append sorted products
-  products.forEach(function(product) {
-    container.appendChild(product);
+  // Remove products from their current positions
+  rows.forEach(function(row) {
+    const rowProducts = row.querySelectorAll(".product-item");
+    rowProducts.forEach(function(product) {
+      product.remove();
+    });
   });
+  
+  // Add sorted products back to first row
+  const firstRow = rows[0];
+  if (firstRow) {
+    products.forEach(function(product) {
+      firstRow.appendChild(product);
+    });
+  }
 }

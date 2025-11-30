@@ -58,7 +58,43 @@ p {
   color: var(--ha-accent);
 }
 
-/* HERO SECTION */
+/* ==============================
+   WELCOME MESSAGE IN NAVBAR
+   ============================== */
+.welcome-nav {
+  color: var(--ha-white);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-left: 2rem;
+  margin-right: 1rem;
+  padding: 0.4rem 1rem;
+  background: rgba(10, 10, 10, 0.85);
+  border-radius: 6px;
+  border: 1px solid rgba(230, 57, 70, 0.5);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+  display: none;
+}
+
+.welcome-nav #user-name-nav {
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+/* Responsive - hide on small screens */
+@media (max-width: 991px) {
+  .welcome-nav {
+    margin-left: 0;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+}
+
+/* ==============================
+   HERO SECTION - NO BOX, JUST READABLE TEXT
+   ============================== */
 .hero-section {
   position: relative;
   background: url("../images/homepage/home-pic.jpg") center/cover no-repeat;
@@ -70,7 +106,7 @@ p {
 .hero-section .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .hero-section .container {
@@ -78,30 +114,52 @@ p {
   z-index: 1;
 }
 
+/* BETTER TEXT READABILITY - NO VISIBLE BOX */
 .hero-section h1 {
   color: var(--ha-white);
   font-size: 3rem;
   line-height: 1.25;
   margin-bottom: 1.2rem;
+  text-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.8),
+    0 4px 16px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(0, 0, 0, 0.5);
+  font-weight: 800;
 }
 
 .hero-section p {
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffffff;
   font-size: 1.1rem;
   max-width: 600px;
+  text-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.8),
+    0 3px 12px rgba(0, 0, 0, 0.6);
+  font-weight: 500;
+  line-height: 1.6;
 }
 
+/* BUTTONS - BIGGER SIZE */
 .btn-accent {
   background: var(--ha-accent);
   color: var(--ha-white);
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-weight: 600;
   transition: all 0.2s ease;
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .btn-accent:hover {
   background: var(--ha-accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.btn-accent.btn-lg {
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
 }
 
 /* SECTIONS */
@@ -176,13 +234,11 @@ p {
     text-align: center;
     margin: 0 auto;
   }
-  .hero-section {
-    justify-content: center;
-  }
 }
 
-/* ---------- MEN PAGE CUSTOM STYLES ---------- */
-
+/* ==============================
+   MEN PAGE - READABLE TEXT
+   ============================== */
 .men-hero {
   background: url("../images/men/men-background.jpg") center top/cover no-repeat;
   min-height: 85vh;
@@ -190,24 +246,36 @@ p {
   align-items: center;
   position: relative;
 }
+
 .men-hero .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.5);
 }
+
 .men-hero .container {
   position: relative;
   z-index: 1;
 }
+
 .men-hero h1 {
   font-size: 2.6rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--ha-white);
   margin-bottom: 1rem;
+  text-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.8),
+    0 4px 16px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(0, 0, 0, 0.5);
 }
+
 .men-hero p {
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffffff;
   font-size: 1.1rem;
+  text-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.8),
+    0 3px 12px rgba(0, 0, 0, 0.6);
+  font-weight: 500;
 }
 
 /* Product cards */
@@ -232,7 +300,9 @@ p {
   border-bottom: 1px solid var(--ha-border);
 }
 
-/* ---------- WOMEN PAGE STYLES ---------- */
+/* ==============================
+   WOMEN PAGE - READABLE TEXT
+   ============================== */
 .women-hero {
   background: url("../images/women/women-background.jpg") center/cover no-repeat;
   position: relative;
@@ -240,24 +310,80 @@ p {
   display: flex;
   align-items: center;
 }
+
 .women-hero .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.5);
 }
+
 .women-hero .container {
   position: relative;
   z-index: 1;
 }
+
 .women-hero h1 {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   color: var(--ha-white);
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  text-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.8),
+    0 4px 16px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(0, 0, 0, 0.5);
 }
+
 .women-hero p {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.05rem;
+  color: #ffffff;
+  font-size: 1.1rem;
   line-height: 1.5;
+  text-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.8),
+    0 3px 12px rgba(0, 0, 0, 0.6);
+  font-weight: 500;
+}
+
+/* ==============================
+   NEW ARRIVALS PAGE - READABLE TEXT
+   ============================== */
+.arrivals-hero {
+  background: url("../images/new-arrival/new-arrival-background.jpg") center top/cover no-repeat;
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+
+.arrivals-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.arrivals-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.arrivals-hero h1 {
+  font-size: 2.6rem;
+  color: var(--ha-white);
+  margin-bottom: 1rem;
+  font-weight: 800;
+  text-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.8),
+    0 4px 16px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.arrivals-hero p {
+  color: #ffffff;
+  font-size: 1.1rem;
+  max-width: 550px;
+  text-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.8),
+    0 3px 12px rgba(0, 0, 0, 0.6);
+  font-weight: 500;
 }
 
 /* ---------- MAKING OF PAGE ---------- */
@@ -265,10 +391,12 @@ p {
   font-size: 2.4rem;
   color: var(--ha-text);
 }
+
 .mockup-card img {
   border: 1px solid var(--ha-border);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 .mockup-card img:hover {
   transform: scale(1.03);
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
@@ -283,34 +411,6 @@ p {
   border-left: 5px solid #e63946;
   padding-left: 15px;
   margin-bottom: 1.5rem;
-}
-
-/* ---------- NEW ARRIVALS PAGE ---------- */
-.arrivals-hero {
-  background: url("../images/new-arrival/new-arrival-background.jpg") center top/cover no-repeat;
-  position: relative;
-  min-height: 85vh;
-  display: flex;
-  align-items: center;
-}
-.arrivals-hero .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-}
-.arrivals-hero .container {
-  position: relative;
-  z-index: 1;
-}
-.arrivals-hero h1 {
-  font-size: 2.6rem;
-  color: var(--ha-white);
-  margin-bottom: 0.75rem;
-}
-.arrivals-hero p {
-  color: rgba(255,255,255,0.9);
-  font-size: 1.1rem;
-  max-width: 550px;
 }
 
 /* ==============================
@@ -537,22 +637,6 @@ p {
 .btn-add-cart:hover {
   background: var(--ha-accent-dark);
   color: var(--ha-white);
-}
-
-/* ==============================
-   WELCOME MESSAGE STYLES
-   ============================== */
-
-#welcome-message {
-  color: #ffffff;
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin: 1rem 0;
-  padding: 0.6rem 1rem;
-  background: rgba(200, 200, 200, 0.95);
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  width: fit-content;
 }
 
 /* ==============================
