@@ -307,4 +307,6 @@ function sortProducts(page) {
       firstRow.appendChild(product);
     });
   }
-}
+} 
+
+// done nothing to write make sure you read again and again 
