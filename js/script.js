@@ -1,8 +1,7 @@
-
-// Initialize cart from localStorage when page loads
+// Load cart from browser storage when page starts
 let cart = JSON.parse(localStorage.getItem("hypeaura-cart")) || [];
 
-// Run all setup functions when the page finishes loading
+// Run these functions when page finishes loading
 document.addEventListener("DOMContentLoaded", function() {
   setupFormValidation();
   updateCartCount();
@@ -10,24 +9,24 @@ document.addEventListener("DOMContentLoaded", function() {
   setupAddToCartButtons();
   setupCheckoutButton();
   checkPageReload();
-  displayWelcomeMessageInNav();
+  displayWelcomeMsg();
 });
 
-// FORM VALIDATION SECTION
-// This function validates the registration form on the home page
+// FORM VALIDATION
+// Validates the registration form on home page
 function setupFormValidation() {
   const form = document.querySelector(".needs-validation");
   
-  // Exit if no form exists on current page
+  // Stop if form doesnt exist on this page
   if (!form) return;
   
   form.addEventListener("submit", function(event) {
     event.preventDefault();
     event.stopPropagation();
     
-    // Check if all form fields are valid
+    // Check if all fields are filled correctly
     if (form.checkValidity()) {
-      // Collect user data from form inputs
+      // Get user data from form
       const userData = {
         firstName: document.getElementById("firstName").value.trim(),
         lastName: document.getElementById("lastName").value.trim(),
@@ -35,34 +34,34 @@ function setupFormValidation() {
         email: document.getElementById("email").value.trim()
       };
       
-      // Save user data to localStorage for permanent storage
+      // Save to localStorage so it stays even after closing browser
       localStorage.setItem("hypeaura-user", JSON.stringify(userData));
       
-      // Set session flag to show welcome message
+      // Save to sessionStorage to show welcome message
       sessionStorage.setItem("hypeaura-show-welcome", "true");
       
-      // Display success message to user
+      // Show success message
       alert("Registration successful! Welcome " + userData.firstName + " " + userData.lastName + "!");
       
-      // Reset form and remove validation styling
+      // Clear the form
       form.reset();
       form.classList.remove("was-validated");
       
-      // Update navbar with welcome message
-      displayWelcomeMessageInNav();
+      // Show welcome message in navbar
+      displayWelcomeMsg();
       
-      // Scroll to top of page
+      // Scroll to top
       window.scrollTo({ top: 0, behavior: 'smooth' });
       
     } else {
-      // Show validation errors if form is invalid
+      // Show errors if form is invalid
       form.classList.add("was-validated");
     }
   }, false);
 }
 
-// Check if page was reloaded by user
-// This clears the welcome message flag on page reload
+// Check if user reloaded the page
+// This clears the welcome message on reload
 function checkPageReload() {
   const navEntries = performance.getEntriesByType("navigation");
   
@@ -71,21 +70,21 @@ function checkPageReload() {
   }
 }
 
-// WELCOME MESSAGE SECTION
-// Display welcome message in navbar using stored user data
-function displayWelcomeMessageInNav() {
-  const welcomeNav = document.getElementById("welcome-nav");
-  const userNameNav = document.getElementById("user-name-nav");
+// WELCOME MESSAGE
+// Show welcome message in navbar with users name
+function displayWelcomeMsg() {
+  const welcomeNav = document.getElementById("welcomeNav");
+  const userNameNav = document.getElementById("userName");
   
-  // Exit if elements don't exist on current page
+  // Stop if elements dont exist
   if (!welcomeNav || !userNameNav) return;
   
-  // Check both sessionStorage flag and localStorage user data
+  // Check both session and local storage
   const showWelcome = sessionStorage.getItem("hypeaura-show-welcome");
   const userData = JSON.parse(localStorage.getItem("hypeaura-user"));
   
   if (showWelcome === "true" && userData && userData.firstName) {
-    // Display user's full name in navbar
+    // Show users full name
     userNameNav.textContent = userData.firstName + " " + userData.lastName;
     welcomeNav.style.display = "block";
   } else {
@@ -94,14 +93,14 @@ function displayWelcomeMessageInNav() {
   }
 }
 
-// SHOPPING CART SECTION
-// Setup click listeners for all Add to Cart buttons
+// SHOPPING CART
+// Setup all add to cart buttons
 function setupAddToCartButtons() {
-  const addButtons = document.querySelectorAll(".btn-add-cart");
+  const addButtons = document.querySelectorAll(".addToCartBtn");
   
   addButtons.forEach(function(button) {
     button.addEventListener("click", function() {
-      // Get product details from button attributes
+      // Get product info from button
       const name = this.getAttribute("data-name");
       const price = parseFloat(this.getAttribute("data-price"));
       const image = this.getAttribute("data-image");
@@ -110,12 +109,12 @@ function setupAddToCartButtons() {
   });
 }
 
-// Add product to cart or increase quantity if already exists
+// Add product to cart or increase quantity
 function addToCart(name, price, image) {
   const existingItem = cart.find(item => item.name === name);
   
   if (existingItem) {
-    // Increase quantity if item already in cart
+    // Item already in cart so just increase quantity
     existingItem.quantity += 1;
   } else {
     // Add new item to cart
@@ -127,52 +126,52 @@ function addToCart(name, price, image) {
     });
   }
   
-  // Save updated cart to localStorage
+  // Save cart to localStorage
   localStorage.setItem("hypeaura-cart", JSON.stringify(cart));
   
-  // Update cart display
+  // Update everything
   updateCartCount();
   renderCartItems();
   openCart();
 }
 
-// Remove item from cart by index
+// Remove item from cart
 function removeFromCart(index) {
   cart.splice(index, 1);
   
-  // Update localStorage with new cart data
+  // Save updated cart
   localStorage.setItem("hypeaura-cart", JSON.stringify(cart));
   
-  // Refresh cart display
+  // Update display
   updateCartCount();
   renderCartItems();
 }
 
-// Update cart count badge in navbar
+// Update the cart count number in navbar
 function updateCartCount() {
-  const cartCount = document.getElementById("cart-count");
+  const cartCount = document.getElementById("cartCount");
   
   if (!cartCount) return;
   
-  // Calculate total number of items in cart
+  // Count total items in cart
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   
   cartCount.textContent = totalItems;
   cartCount.style.display = totalItems > 0 ? "flex" : "none";
 }
 
-// Render all cart items in the cart sidebar
+// Show all cart items in the sidebar
 function renderCartItems() {
-  const cartItemsContainer = document.getElementById("cart-items");
-  const cartTotal = document.getElementById("cart-total");
-  const cartEmpty = document.getElementById("cart-empty");
+  const cartItemsContainer = document.getElementById("cartItems");
+  const cartTotal = document.getElementById("cartTotal");
+  const cartEmpty = document.getElementById("cartEmpty");
   
   if (!cartItemsContainer) return;
   
-  // Clear existing cart items
+  // Clear existing items
   cartItemsContainer.innerHTML = "";
   
-  // Show empty cart message if no items
+  // Show empty message if no items
   if (cart.length === 0) {
     if (cartEmpty) cartEmpty.style.display = "block";
     if (cartTotal) cartTotal.textContent = "0.00";
@@ -181,51 +180,51 @@ function renderCartItems() {
   
   if (cartEmpty) cartEmpty.style.display = "none";
   
-  // Create HTML for each cart item
+  // Create HTML for each item
   cart.forEach(function(item, index) {
     const itemHTML = `
-      <div class="cart-item">
+      <div class="cartItem">
         <img src="${item.image}" alt="${item.name}">
-        <div class="cart-item-info">
+        <div class="cartItemInfo">
           <h6>${item.name}</h6>
           <p>BHD ${item.price.toFixed(2)} x ${item.quantity}</p>
         </div>
-        <button class="cart-item-remove" onclick="removeFromCart(${index})">×</button>
+        <button class="cartItemRemove" onclick="removeFromCart(${index})">×</button>
       </div>
     `;
     cartItemsContainer.innerHTML += itemHTML;
   });
   
-  // Calculate and display total price
+  // Calculate total price
   const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   if (cartTotal) cartTotal.textContent = total.toFixed(2);
 }
 
-// Open cart sidebar and overlay
+// Open cart sidebar
 function openCart() {
-  const cartSidebar = document.getElementById("cart-sidebar");
-  const cartOverlay = document.getElementById("cart-overlay");
+  const cartSidebar = document.getElementById("cartSidebar");
+  const cartOverlay = document.getElementById("cartOverlay");
   
   if (cartSidebar) cartSidebar.classList.add("open");
   if (cartOverlay) cartOverlay.classList.add("open");
 }
 
-// Close cart sidebar and overlay
+// Close cart sidebar
 function closeCart() {
-  const cartSidebar = document.getElementById("cart-sidebar");
-  const cartOverlay = document.getElementById("cart-overlay");
+  const cartSidebar = document.getElementById("cartSidebar");
+  const cartOverlay = document.getElementById("cartOverlay");
   
   if (cartSidebar) cartSidebar.classList.remove("open");
   if (cartOverlay) cartOverlay.classList.remove("open");
 }
 
-// CHECKOUT SECTION
-// Setup click listener for checkout button
+// CHECKOUT
+// Setup checkout button click
 function setupCheckoutButton() {
-  const checkoutButtons = document.querySelectorAll(".btn-accent");
+  const checkoutButtons = document.querySelectorAll(".redBtn");
   
   checkoutButtons.forEach(function(button) {
-    // Only add listener to buttons with Checkout text
+    // Only add to buttons that say Checkout
     if (button.textContent.trim() === "Checkout") {
       button.addEventListener("click", function() {
         handleCheckout();
@@ -236,53 +235,53 @@ function setupCheckoutButton() {
 
 // Handle checkout process
 function handleCheckout() {
-  // Check if cart has items before checkout
+  // Check if cart is empty
   if (cart.length === 0) {
     alert("Your cart is empty! Please add items before checkout.");
     return;
   }
   
-  // Show purchase confirmation message
+  // Show success message
   alert("Thank you for your purchase!");
   
-  // Clear cart after successful purchase
+  // Empty the cart
   cart = [];
   localStorage.setItem("hypeaura-cart", JSON.stringify(cart));
   
-  // Update cart display to reflect empty cart
+  // Update everything
   updateCartCount();
   renderCartItems();
   
-  // Close cart sidebar
+  // Close cart
   closeCart();
 }
 
-// PRODUCT SORTING SECTION
-// Sort products by price on Men, Women, and New Arrivals pages
+// PRODUCT SORTING
+// Sort products by price on men women and new arrivals pages
 function sortProducts(page) {
-  const sortValue = document.getElementById("sort-dropdown-" + page).value;
-  const container = document.getElementById("product-container-" + page);
+  const sortValue = document.getElementById("sortDropdown" + page).value;
+  const container = document.getElementById("productContainer" + page);
   
   if (!container) return;
   
-  // Get all product items from container
-  const products = Array.from(container.querySelectorAll(".product-item"));
+  // Get all products
+  const products = Array.from(container.querySelectorAll(".productItem"));
   
-  // Don't sort if Featured is selected
+  // Dont sort if featured is selected
   if (sortValue === "featured") {
     return;
   }
   
-  // Sort products by price low to high
-  if (sortValue === "price-low") {
+  // Sort low to high
+  if (sortValue === "pricelow") {
     products.sort(function(a, b) {
       const priceA = parseFloat(a.getAttribute("data-price")) || 0;
       const priceB = parseFloat(b.getAttribute("data-price")) || 0;
       return priceA - priceB;
     });
   } 
-  // Sort products by price high to low
-  else if (sortValue === "price-high") {
+  // Sort high to low
+  else if (sortValue === "pricehigh") {
     products.sort(function(a, b) {
       const priceA = parseFloat(a.getAttribute("data-price")) || 0;
       const priceB = parseFloat(b.getAttribute("data-price")) || 0;
@@ -290,18 +289,18 @@ function sortProducts(page) {
     });
   }
   
-  // Get all row containers
+  // Get all rows
   const rows = container.querySelectorAll(".row");
   
-  // Remove products from their current positions
+  // Remove products from current positions
   rows.forEach(function(row) {
-    const rowProducts = row.querySelectorAll(".product-item");
+    const rowProducts = row.querySelectorAll(".productItem");
     rowProducts.forEach(function(product) {
       product.remove();
     });
   });
   
-  // Add sorted products back to first row
+  // Put sorted products back in first row
   const firstRow = rows[0];
   if (firstRow) {
     products.forEach(function(product) {

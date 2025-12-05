@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HypeAura — Our Story</title>
+  <title>HypeAura Our Story</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <header class="navbar navbar-expand-lg ha-navbar">
+  <!-- Navigation bar at top -->
+  <header class="navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand fw-bold" href="home.html">HYPEAURA</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
@@ -26,16 +26,16 @@
           <li class="nav-item"><a class="nav-link active" href="our-story.html">Our Story</a></li>
         </ul>
         
-        <!-- WELCOME MESSAGE IN NAVBAR -->
-        <div class="welcome-nav" id="welcome-nav" style="display: none;">
-          Welcome <span id="user-name-nav">Guest</span>
+        <!-- Welcome message appears here after registration -->
+        <div class="welcomeMsg" id="welcomeNav" style="display: none;">
+          Welcome <span id="userName">Guest</span>
         </div>
       </nav>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero-section" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); min-height: 350px;">
+  <!-- Hero section -->
+  <section class="heroSection" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); min-height: 350px;">
     <div class="overlay"></div>
     <div class="container text-white d-flex align-items-center justify-content-center text-center" style="min-height: 350px;">
       <div>
@@ -45,7 +45,7 @@
     </div>
   </section>
 
-  <!-- OUR STORY CONTENT -->
+  <!-- Our story content -->
   <section class="py-5 bg-white">
     <div class="container">
       <div class="row">
@@ -54,51 +54,37 @@
           <h2 class="fw-bold mb-4 text-center" style="color: #e63946;">Our Journey</h2>
           
           <p class="mb-4" style="font-size: 1.05rem; line-height: 1.8;">
-            Working on this website as a team of four Mahmood, Thamer, Ali, and Yousef was a complete experience that taught us a lot about design, coding, time management, and how to work together effectively. Even though each one of us had different strengths, we were able to use them in a way that balanced the workload and helped the project come together smoothly. From the beginning, we agreed that everyone would choose the parts they were naturally good at, and that made the whole process feel more organized and enjoyable.
+            Working on this website with three other people Mahmood Thamer Ali and Yousef was honestly a great learning experience. We learned a lot about design coding and how to actually work together as a team without going crazy. Everyone had their own strengths which helped a lot because we could split up the work based on what each person was good at. From the start we all just picked the parts we felt comfortable doing and that made everything go smoother.
           </p>
 
           <h3 class="fw-bold mt-5 mb-3" style="color: #0a0a0a; border-left: 4px solid #e63946; padding-left: 15px;">Team Roles</h3>
 
           <p class="mb-4" style="font-size: 1.05rem; line-height: 1.8;">
-            Thamer role focused heavily on the graphical and content-related side of the website. He was responsible for searching, selecting, and preparing the images that appear throughout our pages. He took this task seriously and treated it as if the website were a real online store. He searched for the highest-quality pictures from Pinterest and other websites, always choosing the ones that best represented the clothing items we wanted to include. After finding the right images, he would extract the links and send everything to Ali for implementation. What motivated him was the belief that visuals play a big role in attracting customers. Thamer chose this task because he genuinely enjoys graphical design and sees it as an essential part of any modern website.
+            Thamer took care of all the images and visual content for the website. He spent a lot of time searching Pinterest and other sites for good quality pictures that would fit our clothing items. He really treated it like we were building an actual online store which was cool. After he found the images he would send them to Ali to put on the website. Thamer picked this job because he's always been into graphic design and he thinks visuals are what make customers want to buy stuff.
           </p>
 
           <p class="mb-4" style="font-size: 1.05rem; line-height: 1.8;">
-            Mahmood played a crucial role during both the early design phase and the technical implementation. He created the Figma mock-ups, which acted as the blueprint for everything we built later. He designed the structure of all six pages and showed us clearly where each section, image, and button should go. Throughout the project, Mahmood asked many questions to Dr. Abdelhameed Fawzy to make sure everything was correct and met the project requirements exactly. On top of the design work, Mahmood contributed significantly to the JavaScript functionality. He worked on the form validation code, making sure the "Register Your Interest" form checked that First and Last Names had at least three characters, the mobile number was exactly eight digits, and the email was properly formatted. He also implemented the functionality to store user data using both localStorage and sessionStorage to permanently save the user's information and sessionStorage to control when the welcome message appears. This allowed the user's first name to display across all pages as a personalized welcome message in the navigation bar. After Ali built the initial website structure, Mahmood took on the responsibility of refining and polishing the design to make it smooth, clean, and user-friendly. This required a lot of patience and attention to detail. He carefully adjusted button sizes, improved spacing, enhanced text readability by adding shadows to hero sections, and ensured consistent styling across all pages. His work transformed the website from functional to visually appealing and easy to use. Additionally, Mahmood helped with the Making Of page by explaining the design reasons behind our choices. Without Mahmood's planning, questioning, refinement work, and technical contributions, the project would have been much harder.
+            Mahmood handled the design mockups and a lot of the technical coding. He made all the Figma wireframes at the beginning which basically showed us where everything should go on all six pages like where the buttons and images and sections would be. He kept asking Dr Abdelhameed Fawzy questions throughout the project to make sure we were doing everything right and following the requirements. Mahmood also did a lot of the JavaScript work especially the form validation part. He made sure the form checked that first and last names had at least 3 characters the mobile number was exactly 8 digits and the email format was correct. He set up localStorage to save user data permanently and sessionStorage to control when the welcome message shows up. This way the users name appears in the navbar on every page after they register. After Ali built the basic website Mahmood went back and refined everything to make it look better. He adjusted button sizes fixed spacing issues and added text shadows to the hero sections so you could actually read the text over the images. He made sure the styling was consistent on all pages which took a while but made the site look way more professional. Mahmood also wrote the explanations for the Making Of page about why we made certain design choices.
           </p>
 
           <p class="mb-4" style="font-size: 1.05rem; line-height: 1.8;">
-            Ali worked on building the initial technical foundation of the website. He took the HTML structure and visual plans and turned them into a working website. Ali wrote the base CSS code, implemented Bootstrap throughout the site, and created the fundamental layout and page structure. His ability to quickly build out all six pages gave us a solid foundation to work with. Ali's technical skills were essential in getting the website up and running. He was patient and collaborative when Mahmood made refinements to improve the user experience. Ali's foundational work was critical to the project's success.
+            Ali was the one who built the foundation of the website. He took the HTML structure and the designs and turned them into an actual working site. Ali wrote the base CSS code added Bootstrap to everything and created the main layout and page structure. He was able to build all six pages pretty quickly which gave us something solid to work with. Ali was really patient when Mahmood kept making changes and refinements to improve things. His coding skills got the website up and running and his work was really important for the whole project.
           </p>
 
           <p class="mb-4" style="font-size: 1.05rem; line-height: 1.8;">
-            Yousef focused on additional JavaScript functionality and testing of the website. He added helpful error messages and a confirmation message when the form was submitted successfully. Yousef tested the website to make sure all buttons, links, and Bootstrap components worked properly across different pages. His contributions helped ensure the website was interactive and user-friendly instead of just static pages.
+            Yousef worked on extra JavaScript features and tested everything. He added the error messages and the success alert when someone submits the form. Yousef went through all the pages testing every button and link and Bootstrap component to make sure everything worked properly. His testing made sure the site was actually interactive and not just a bunch of static pages.
           </p>
 
           <h3 class="fw-bold mt-5 mb-3" style="color: #0a0a0a; border-left: 4px solid #e63946; padding-left: 15px;">Challenges We Faced</h3>
 
           <p class="mb-4" style="font-size: 1.05rem; line-height: 1.8;">
-            Throughout the entire project, we communicated constantly and helped each other whenever something became confusing or challenging. There were moments when the CSS conflicted with the HTML, or the JavaScript needed adjustments, or a layout didn't match the mock-ups. One of the biggest challenges we faced was making sure the form validation worked correctly and that the user's name appeared on all pages after registration using both localStorage and sessionStorage. Another challenge was refining the visual design to make the text readable on hero images without using visible boxes, which required experimenting with text shadows and overlay opacity. We also had to ensure our mock-ups were proper wireframes from Figma and not screenshots of the completed website, as that would result in zero marks. Every time we encountered an issue, we discussed it as a group and found a solution together. This teamwork made the final result stronger than if each of us had worked alone.
+            We talked to each other constantly throughout the project especially when something wasn't working or was confusing. There were definitely moments where the CSS would mess up the HTML layout or the JavaScript needed to be fixed or something didn't look like the mockups. One of the biggest problems we had was getting the form validation to work right and making sure the users name showed up on every page using localStorage and sessionStorage together. Another challenge was making the text on the hero images readable without putting ugly boxes around it. We had to experiment with different text shadow styles and overlay transparency until it looked good. We also had to be really careful that our mockups were actual Figma wireframes and not just screenshots of the finished website because the professor said that would be zero marks. Whenever we ran into an issue we would talk about it as a group and figure out how to fix it together. Working as a team definitely made the final result better than if we tried to do everything alone.
           </p>
 
           <h3 class="fw-bold mt-5 mb-3" style="color: #0a0a0a; border-left: 4px solid #e63946; padding-left: 15px;">What We Learned</h3>
 
           <p class="mb-4" style="font-size: 1.05rem; line-height: 1.8;">
-            Overall, this project taught us how to plan, design, build, and finish a complete website from scratch while balancing our different roles. We learned the importance of asking questions early to avoid mistakes later. We discovered how Bootstrap makes styling faster and more consistent across pages. We understood how JavaScript brings interactivity to a website and how localStorage and sessionStorage can work together to save user information and control display logic. We also learned the value of patience and attention to detail when refining a design to make it truly user-friendly. We learned how critical it is to follow project requirements exactly, especially details like having exactly six pages, proper form validation, and including proper wireframes instead of screenshots. Most importantly, we learned that communication and teamwork are essential when working on a group project. Each of us contributed something unique, and all our pieces came together to create a website we are proud of and confident will meet all the grading criteria.
-          </p>
-
-          <!-- HORIZONTAL LINE SEPARATOR -->
-          <hr style="border: none; border-top: 3px solid #e63946; margin: 4rem 0; width: 60%; margin-left: auto; margin-right: auto;">
-
-          <!-- THANK YOU LETTER -->
-          <h2 class="fw-bold mb-4 text-center" style="color: #0a0a0a; font-size: 2.5rem;">Thank You for Everything</h2>
-          
-          <p class="mb-4" style="font-size: 1.15rem; line-height: 2; text-align: justify;">
-            We would like to express our sincere gratitude to <strong>Dr. Abdelhameed Fawzy</strong> for his guidance, patience, and dedication throughout this course. Without your clear explanations, helpful feedback, and constant encouragement, we would not have been able to create a project we are truly proud of. You taught us not just how to code, but how to think like developers—how to plan, problem-solve, and work together as a team. Your passion for teaching and your commitment to our success inspired us to push ourselves beyond what we thought we were capable of. Thank you for believing in us and for giving us the knowledge and confidence to build something meaningful. This project is a testament to everything you have taught us. We are incredibly grateful to have had you as our lecturer.
-          </p>
-          
-          <p class="text-end mt-5" style="font-size: 1.3rem; font-weight: 700; color: #0a0a0a;">
-            — Mahmood, Thamer, Ali & Yousef
+            This project taught us how to plan design and build a complete website from start to finish while splitting up the work between four people. We learned that asking questions early saves you from running into problems later. We figured out that Bootstrap makes styling way faster and keeps everything looking consistent across different pages. JavaScript is what makes a website interactive instead of boring and localStorage with sessionStorage let you save user info and control what displays on the screen. We also learned you need patience and attention to small details when youre polishing a design to make it user friendly. Following the project requirements exactly is really important especially things like having exactly six pages proper form validation and making sure you use actual wireframes not screenshots. But the most important thing we learned is that communication and teamwork are essential when youre doing a group project. Everyone brought something different to the table and when we put it all together we ended up with a website were actually proud of that meets all the requirements.
           </p>
 
         </div>

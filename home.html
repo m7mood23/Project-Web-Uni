@@ -9,8 +9,8 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <header class="navbar navbar-expand-lg ha-navbar">
+  <!-- Navigation bar at top -->
+  <header class="navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand fw-bold" href="home.html">HYPEAURA</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
@@ -26,74 +26,74 @@
           <li class="nav-item"><a class="nav-link" href="our-story.html">Our Story</a></li>
         </ul>
         
-        <!-- WELCOME MESSAGE IN NAVBAR -->
-        <div class="welcome-nav" id="welcome-nav" style="display: none;">
-          Welcome <span id="user-name-nav">Guest</span>
+        <!-- Welcome message appears here after registration -->
+        <div class="welcomeMsg" id="welcomeNav" style="display: none;">
+          Welcome <span id="userName">Guest</span>
         </div>
         
-        <div class="cart-icon" onclick="openCart()">
+        <!-- Cart icon -->
+        <div class="cartIcon" onclick="openCart()">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-          <span id="cart-count">0</span>
+          <span id="cartCount">0</span>
         </div>
       </nav>
     </div>
   </header>
 
-  <!-- CART OVERLAY -->
-  <div id="cart-overlay" onclick="closeCart()"></div>
+  <!-- Dark overlay when cart is open -->
+  <div id="cartOverlay" onclick="closeCart()"></div>
 
-  <!-- CART SIDEBAR -->
-  <div id="cart-sidebar">
-    <div class="cart-header">
+  <!-- Shopping cart sidebar -->
+  <div id="cartSidebar">
+    <div class="cartHeader">
       <h5>Your Cart</h5>
-      <button class="cart-close" onclick="closeCart()">×</button>
+      <button class="cartClose" onclick="closeCart()">×</button>
     </div>
-    <div class="cart-body">
-      <div id="cart-empty">
+    <div class="cartBody">
+      <div id="cartEmpty">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
         <h6>Your shopping cart is empty.</h6>
         <p>Why don't you fill it in with some of our suggestions?</p>
       </div>
-      <div id="cart-items"></div>
+      <div id="cartItems"></div>
     </div>
-    <div class="cart-footer">
-      <div class="cart-total-row">
+    <div class="cartFooter">
+      <div class="cartTotalRow">
         <span>Total:</span>
-        <strong>BHD <span id="cart-total">0.00</span></strong>
+        <strong>BHD <span id="cartTotal">0.00</span></strong>
       </div>
-      <button class="btn btn-accent">Checkout</button>
+      <button class="btn redBtn">Checkout</button>
     </div>
   </div>
 
-  <!-- HERO SECTION -->
-  <section class="hero-section">
+  <!-- Hero section with background image -->
+  <section class="heroSection">
     <div class="overlay"></div>
     <div class="container">
       <div class="col-md-7 col-lg-6">
         <h1>Elevate Your Aura.<br>Define Your Hype.</h1>
-        <p>Discover the latest in Bahraini street fashion. Bold cuts, premium materials, and creative designs crafted for those who stand out.</p>
-        <!-- REMOVED WELCOME MESSAGE FROM HERE -->
-        <a href="#register" class="btn btn-accent btn-lg px-5 py-2 mt-3">Register Now</a>
+        <p>Discover the latest in Bahraini street fashion Bold cuts premium materials and creative designs crafted for those who stand out.</p>
+        <a href="#register" class="btn redBtn btn-lg px-5 py-2 mt-3">Register Now</a>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="section-light text-center py-5">
+  <!-- About section -->
+  <section class="lightSection text-center py-5">
     <div class="container col-lg-8">
       <h2 class="fw-bold mb-3">Welcome to HypeAura</h2>
       <p class="lead text-secondary mb-4">
         HypeAura redefines Bahraini streetwear by combining cultural roots with modern design. 
-        Each piece reflects individuality, confidence, and authenticity — all stitched into every detail.
+        Each piece reflects individuality confidence and authenticity all stitched into every detail.
       </p>
       <p class="text-secondary">
-        Our collections empower the bold and the creative. From classic silhouettes to daring street looks, HypeAura delivers comfort and confidence to your everyday wardrobe.
+        Our collections empower the bold and the creative From classic silhouettes to daring street looks HypeAura delivers comfort and confidence to your everyday wardrobe.
       </p>
     </div>
   </section>
 
-  <!-- REGISTER FORM -->
-  <section id="register" class="section-quiet py-5">
+  <!-- Registration form section -->
+  <section id="register" class="graySection py-5">
     <div class="container text-center mb-5">
       <h3 class="fw-bold mb-2">Register Your Interest</h3>
       <p class="text-secondary">Join our community to get early access to collections and special offers.</p>
@@ -101,10 +101,10 @@
     <div class="container d-flex justify-content-center">
       <div class="col-md-8 col-lg-6">
         
-        <!-- FORM WITH BOOTSTRAP VALIDATION -->
-        <form class="form-panel p-5 needs-validation" novalidate>
+        <!-- Registration form with validation -->
+        <form class="formBox p-5 needs-validation" novalidate>
           
-          <!-- FIRST NAME -->
+          <!-- First name field -->
           <div class="mb-4">
             <label for="firstName" class="form-label">First Name</label>
             <input 
@@ -124,7 +124,7 @@
             </div>
           </div>
 
-          <!-- LAST NAME -->
+          <!-- Last name field -->
           <div class="mb-4">
             <label for="lastName" class="form-label">Last Name</label>
             <input 
@@ -144,7 +144,7 @@
             </div>
           </div>
 
-          <!-- MOBILE NUMBER -->
+          <!-- Mobile number field -->
           <div class="mb-4">
             <label for="mobile" class="form-label">Mobile Number</label>
             <input 
@@ -165,7 +165,7 @@
             </div>
           </div>
 
-          <!-- EMAIL -->
+          <!-- Email field -->
           <div class="mb-5">
             <label for="email" class="form-label">Email Address</label>
             <input 
@@ -182,34 +182,35 @@
             </div>
           </div>
 
-          <button type="submit" class="btn btn-accent w-100 py-2 fw-semibold">Submit</button>
+          <!-- Submit button -->
+          <button type="submit" class="btn redBtn w-100 py-2 fw-semibold">Submit</button>
         </form>
 
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
+  <!-- Footer at bottom -->
+  <footer class="footer">
     <div class="container">
       <div class="row g-4">
         <div class="col-md-6">
           <h5 class="fw-bold mb-3">HYPEAURA</h5>
-          <p class="muted mb-0">Bahrain's streetwear label for the modern generation — crafted with style, passion, and confidence.</p>
+          <p class="muted mb-0">Bahrain streetwear label for the modern generation crafted with style passion and confidence.</p>
         </div>
         <div class="col-md-6">
           <h6 class="fw-semibold mb-2">Contact Us</h6>
           <ul class="list-unstyled small mb-0">
             <li>Email: info@hypeaura.com</li>
             <li>Phone: +973 1234 5678</li>
-            <li>Location: Manama, Bahrain</li>
+            <li>Location: Manama Bahrain</li>
           </ul>
         </div>
       </div>
       <hr class="border-secondary my-4">
       <div class="d-flex justify-content-between align-items-center small muted">
-        <span>© 2025 HypeAura. All rights reserved.</span>
-        <span>Trusted by 1,000+ customers in Bahrain</span>
+        <span>2025 HypeAura All rights reserved</span>
+        <span>Trusted by 1000+ customers in Bahrain</span>
       </div>
     </div>
   </footer>
