@@ -309,4 +309,3 @@ function sortProducts(page) {
   }
 } 
 
-// done nothing to write make sure you read again and again 
