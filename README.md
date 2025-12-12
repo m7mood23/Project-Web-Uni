@@ -12,8 +12,8 @@ A modern streetwear e-commerce website built with HTML, CSS, JavaScript, and Boo
 
 ## 🛠️ Technologies
 
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript
 - Bootstrap 5
 
