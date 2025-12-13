@@ -62,4 +62,6 @@ HypeAura/
 
 ---
 
+![demo](https://github.com/user-attachments/assets/bfd961cf-f2c7-429a-a200-ad604ff4eddf)
+
 Made with ❤️ for Web Fundamentals Project
