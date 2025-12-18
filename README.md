@@ -32,7 +32,7 @@ A modern streetwear e-commerce website built with HTML, CSS, JavaScript, and Boo
 - Making Of (wireframes)
 - Our Story (reflection)
 
-## 💡 What We Learned
+##  What We Learned
 
 Working on this project taught us how to build a complete website from scratch. We learned form validation, localStorage and sessionStorage, Bootstrap for styling, and JavaScript for interactive features like the shopping cart and product sorting. Most importantly we learned teamwork and how to split tasks based on our strengths.
 
