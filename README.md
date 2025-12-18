@@ -1,8 +1,8 @@
-# 🛍️ HypeAura
+#  HypeAura
 
 A modern streetwear e-commerce website built with HTML, CSS, JavaScript, and Bootstrap. Features user registration, shopping cart, and product sorting.
 
-## ✨ Features
+##  Features
 
 - User registration with form validation
 - Shopping cart with unlimited items
@@ -10,20 +10,20 @@ A modern streetwear e-commerce website built with HTML, CSS, JavaScript, and Boo
 - Responsive design with Bootstrap
 - Welcome message using localStorage and sessionStorage
 
-## 🛠️ Technologies
+## Technologies
 
 - HTML
 - CSS
 - JavaScript
 - Bootstrap 5
 
-## 🚀 How to Run
+##  How to Run
 
 1. Clone the repo
 2. Open `home.html` in your browser
 3. Done!
 
-## 📱 Pages
+## Pages
 
 - Home (with registration form)
 - Men Collection
@@ -36,7 +36,7 @@ A modern streetwear e-commerce website built with HTML, CSS, JavaScript, and Boo
 
 Working on this project taught us how to build a complete website from scratch. We learned form validation, localStorage and sessionStorage, Bootstrap for styling, and JavaScript for interactive features like the shopping cart and product sorting. Most importantly we learned teamwork and how to split tasks based on our strengths.
 
-## 👥 Team
+## Team
 
 **Built by:**
 - Mahmood Alderazi (202302160)
